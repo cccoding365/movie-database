@@ -1,0 +1,6 @@
+@import url(./styles/base.less);
+@import url(./styles/fonts.less);
+
+body{
+    background-color: #3c3c3c;
+}
