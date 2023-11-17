@@ -1,18 +1,25 @@
-# Vue 3 + TypeScript + Vite
+# Movie Database App
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+**Tier:** 3-Advanced
 
-## Recommended IDE Setup
+Find your next movie or create your watchlist with this App. It include reviews, rating, actors and anything you need to know about the movie.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+-   This application will help users find their next movie to watch by showing helpful stats
+-   Resource needed for the project is movie api, examples include Imdb, MovieDB etc.
 
-## Type Support For `.vue` Imports in TS
+## User Stories
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+-   [ ] User can see all the latest movie on the front page
+-   [ ] User scroll down to see all other movies according to release date
+-   [ ] User can click on any of the movie to go to their own separate page
+-   [ ] User can then see all about the movie ratings, about, actors present on each separate movie page
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Bonus features
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+-   [ ] User can create an account
+-   [ ] User can create their own watch list
+-   [ ] User can review movies
+
+## Useful links and resources
+
+-   [MovieDB Api](https://developers.themoviedb.org/3)
