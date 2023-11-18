@@ -4,3 +4,8 @@ export interface IMovieReqOption {
 	filter: MovieFilter;
 	page: Number;
 }
+
+export interface ISearchMoviesReqOption {
+	query: String;
+	page: Number;
+}
