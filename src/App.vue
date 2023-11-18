@@ -54,15 +54,13 @@ const onGetMovieRecommendations = async () => {
 
 <template>
 	<h1>Movie database</h1>
-	<button type="button" @click="onGetMovies">getMovies</button>
-	<button type="button" @click="onGetGenres">getGenres</button>
-	<button type="button" @click="onSearchMovies">searchMovies</button>
-	<button type="button" @click="onGetMovie">getMovie</button>
-	<button type="button" @click="onMovieCredits">getMovieCredits</button>
-	<button type="button" @click="onGetMovieImages">getMovieImages</button>
-	<button type="button" @click="onGetMovieRecommendations">
-		getMovieRecommendations
-	</button>
+	<button @click="onGetMovies">getMovies</button>
+	<button @click="onGetGenres">getGenres</button>
+	<button @click="onSearchMovies">searchMovies</button>
+	<button @click="onGetMovie">getMovie</button>
+	<button @click="onMovieCredits">getMovieCredits</button>
+	<button @click="onGetMovieImages">getMovieImages</button>
+	<button @click="onGetMovieRecommendations">getMovieRecommendations</button>
 </template>
 
 <style scoped lang="less">
