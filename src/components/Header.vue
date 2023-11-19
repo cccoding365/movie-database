@@ -1,9 +1,11 @@
 <template>
-	<div class="container" :class="{ fixed: y > 10 }">
-		<img class="logo" src="/favicon.svg" alt="Movie Database" />
-		<div class="title">MovieDatabase</div>
-		<i class="more-icon fas fa-bars" />
-	</div>
+	<header :class="{ fixed: y > 60 }">
+		<div class="container">
+			<img class="logo" src="/favicon.svg" alt="Movie Database" />
+			<span class="title">Movie·Database</span>
+			<i class="more-icon fas fa-bars" />
+		</div>
+	</header>
 </template>
 
 <script setup lang="ts">
@@ -13,32 +15,41 @@ const { y } = useScroll(window);
 </script>
 
 <style scoped lang="less">
-.container {
-	width: 100%;
+header {
+	left: 0;
+	right: 0;
+	height: 3.75rem;
 	display: flex;
-	align-items: center;
-	padding: 2.1333vw;
-
+	justify-content: center;
+	transition: all 0.25s;
 	&.fixed {
 		position: fixed;
 		z-index: 9999;
-		background-color: #333;
+		background-color: #ececec;
 	}
 
-	.logo {
-		width: 8.5333vw;
-		height: 8.5333vw;
-		margin-right: 2.1333vw;
-	}
-	.title {
-		color: #fff;
-		font-size: 4.8vw;
-		font-weight: bold;
-	}
-	.more-icon {
-		color: #fff;
-		font-size: 6.4vw;
-		margin-left: auto;
+	.container {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		padding: 1rem;
+
+		max-width: 1024px;
+
+		.logo {
+			width: 1.875rem;
+			height: 1.875rem;
+			margin-right: 1rem;
+		}
+		.title {
+			color: #ff0808;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+		.more-icon {
+			color: #ff0808;
+			margin-left: auto;
+		}
 	}
 }
 </style>

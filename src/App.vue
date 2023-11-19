@@ -4,11 +4,11 @@ import Header from "./components/Header.vue";
 
 <template>
 	<Header />
-	<div class="main"></div>
+	<div class="main">哈哈哈哈哈哈</div>
 </template>
 
 <style scoped lang="less">
 .main {
-	height: 1000px;
+	height: 5000px;
 }
 </style>
