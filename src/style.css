@@ -1,6 +1,8 @@
+@import url(./styles/fontawesome.min.css);
 @import url(./styles/base.less);
 @import url(./styles/fonts.less);
 
-body{
+body {
+    font-family: PingFang SC;
     background-color: #3c3c3c;
 }
