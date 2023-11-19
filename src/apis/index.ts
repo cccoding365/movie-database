@@ -37,6 +37,13 @@ export const getMovie = (id: Number) => {
 };
 
 /**
+ * Get the alternative titles for a movie.
+ */
+export const getMovieAlternativeTitles = (id: Number) => {
+	return axios.get(`/movie/${id}/alternative_titles`);
+};
+
+/**
  * Get the all credits of a movie by ID.
  */
 export const getMovieCredits = (id: Number) => {
@@ -64,4 +71,25 @@ export const getMovieRecommendations = (id: Number) => {
 			page: 1,
 		},
 	});
+};
+
+/**
+ * Get the user reviews for a movie.
+ */
+export const getMovieReviews = (id: Number) => {
+	return axios.get(`/movie/${id}/reviews`);
+};
+
+/**
+ * Get the similar movies based on genres and keywords.
+ */
+export const getMovieSimilar = (id: Number) => {
+	return axios.get(`/movie/${id}/similar`);
+};
+
+/**
+ * Get the translations for a movie.
+ */
+export const getMovieTranslations = (id: Number) => {
+	return axios.get(`/movie/${id}/translations`);
 };
