@@ -34,7 +34,7 @@ header {
 		align-items: center;
 		padding: 1rem;
 
-		max-width: 1024px;
+		max-width: 1200px;
 
 		.logo {
 			width: 1.875rem;

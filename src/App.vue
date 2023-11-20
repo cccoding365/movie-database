@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
+
+import MovieData from "@/apis/fake-data.json";
+import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
+import { onMounted } from "vue";
+
+onMounted(() => {
+	console.log(MovieData);
+});
 </script>
 
 <template>
@@ -13,19 +21,28 @@ import Header from "@/components/Header.vue";
 		</div>
 		<nav class="nav-bar">
 			<ul class="nav-list">
-				<li class="nav-list-item active">Popular</li>
-				<li class="nav-list-item">Now playing</li>
+				<li class="nav-list-item active">Now playing</li>
+				<li class="nav-list-item">Popular</li>
 				<li class="nav-list-item">Top rated</li>
-				<li class="nav-list-item">Up coming</li>
+				<li class="nav-list-item">Upcoming</li>
 			</ul>
 		</nav>
+
+		<div class="movie-container">
+			<div class="movie-card" v-for="item in MovieData.results">
+				<img
+					class="poster"
+					:src="MOVIE_DB_IMAGE_URL.medium + item.poster_path"
+				/>
+				<div class="original_title">{{ item.original_title }}</div>
+			</div>
+		</div>
 	</div>
 	<Footer />
 </template>
 
 <style scoped lang="less">
 .main {
-	height: 300px;
 	padding: 1rem;
 	.title {
 		font-size: 1.25rem;
@@ -54,6 +71,7 @@ import Header from "@/components/Header.vue";
 	}
 
 	.nav-bar {
+		margin: 1rem 0;
 		.nav-list {
 			display: flex;
 			font-size: 0.875rem;
@@ -71,13 +89,35 @@ import Header from "@/components/Header.vue";
 						content: "";
 						position: absolute;
 						height: 0.125rem;
-						width: 50%;
+						width: 30%;
 						background: linear-gradient(90deg, #f44c35, #ff8f71);
 						left: 0;
 						top: 120%;
 						border-radius: 999px;
 					}
 				}
+			}
+		}
+	}
+
+	.movie-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		.movie-card {
+			width: 8.125rem;
+			margin: 0.5rem;
+
+			.poster {
+				border: 0.125rem solid #ccc;
+				border-radius: 0.75rem;
+				width: 8.125rem;
+			}
+			.original_title {
+				text-align: center;
+				font-size: 0.75rem;
+				line-height: 1rem;
 			}
 		}
 	}
