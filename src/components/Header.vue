@@ -42,12 +42,12 @@ header {
 			margin-right: 1rem;
 		}
 		.title {
-			color: #ff0808;
+			color: #f44c36;
 			font-weight: bold;
 			text-transform: uppercase;
 		}
 		.more-icon {
-			color: #ff0808;
+			color: #f44c36;
 			margin-left: auto;
 		}
 	}

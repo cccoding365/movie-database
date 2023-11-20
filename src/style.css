@@ -3,6 +3,6 @@
 @import url(./styles/fonts.less);
 
 body {
-    font-family: PingFang SC;
-    background-color: #3c3c3c;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #15141f;
 }
