@@ -1,9 +1,9 @@
 <template>
 	<div class="movie-detail">
-		<img
-			class="movie-detail-backdrop"
-			:src="MOVIE_DB_IMAGE_URL.large + MovieDetail.backdrop_path"
-		/>
+		<div class="movie-detail-backdrop">
+			<img :src="MOVIE_DB_IMAGE_URL.large + MovieDetail.backdrop_path" />
+		</div>
+
 		<div class="movie-detail-content">
 			<div class="movie-detail-title">{{ MovieDetail.title }}</div>
 
@@ -44,13 +44,17 @@
 <script lang="ts" setup>
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
 import MovieDetail from "@/apis/movie-detail.json";
+
+import MovieSimilar from "@/apis/movie-similar.json";
+
 import { onMounted } from "vue";
 // const props = defineProps({
 // 	id: String,
 // });
 
 onMounted(() => {
-	console.log(MovieDetail);
+	console.log({ MovieDetail });
+	console.log({ MovieSimilar });
 });
 </script>
 
@@ -58,6 +62,18 @@ onMounted(() => {
 .movie-detail {
 	&-backdrop {
 		width: 100%;
+		position: relative;
+		img {
+			width: 100%;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			left: 0;
+			background: linear-gradient(0deg, #15141f, #15141f09);
+		}
 	}
 	&-title {
 		margin: 0.5rem 0;
@@ -74,6 +90,8 @@ onMounted(() => {
 		padding: 0 1rem;
 		font-size: 0.875rem;
 		color: #bcbcbc;
+		position: relative;
+
 		.section {
 			display: flex;
 			padding: 0.75rem 0;
