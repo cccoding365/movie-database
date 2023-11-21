@@ -10,7 +10,8 @@
 <script setup lang="ts"></script>
 <style scoped lang="less">
 .container {
-	padding: 0.5rem;
+	padding: 1rem 0;
+	color: #999;
 	font-size: 0.75rem;
 	text-align: center;
 	.icon {

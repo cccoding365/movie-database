@@ -104,15 +104,15 @@ onMounted(() => {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+		row-gap: 2rem;
+		column-gap: 1.5rem;
 
 		.movie-card {
 			width: 8.125rem;
-			margin: 0.5rem;
 
 			.poster {
-				border: 0.125rem solid #ccc;
+				width: 100%;
 				border-radius: 0.75rem;
-				width: 8.125rem;
 			}
 			.original_title {
 				text-align: center;
