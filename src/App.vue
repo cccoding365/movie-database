@@ -1,16 +1,3 @@
-<script setup lang="ts">
-import Footer from "@/components/Footer.vue";
-import Header from "@/components/Header.vue";
-
-import MovieData from "@/apis/fake-data.json";
-import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
-import { onMounted } from "vue";
-
-onMounted(() => {
-	console.log(MovieData);
-});
-</script>
-
 <template>
 	<Header />
 	<div class="main">
@@ -35,11 +22,27 @@ onMounted(() => {
 					:src="MOVIE_DB_IMAGE_URL.medium + item.poster_path"
 				/>
 				<div class="original_title">{{ item.original_title }}</div>
+				<div class="release_year">
+					( {{ item.release_date.split("-")[0] }} )
+				</div>
 			</div>
 		</div>
 	</div>
 	<Footer />
 </template>
+
+<script setup lang="ts">
+import Footer from "@/components/Footer.vue";
+import Header from "@/components/Header.vue";
+
+import MovieData from "@/apis/fake-data.json";
+import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
+import { onMounted } from "vue";
+
+onMounted(() => {
+	console.log(MovieData);
+});
+</script>
 
 <style scoped lang="less">
 .main {
@@ -109,15 +112,22 @@ onMounted(() => {
 
 		.movie-card {
 			width: 8.125rem;
+			font-size: 0.75rem;
 
 			.poster {
 				width: 100%;
 				border-radius: 0.75rem;
 			}
 			.original_title {
-				text-align: center;
-				font-size: 0.75rem;
+				text-align: left;
 				line-height: 1rem;
+				margin: 0.25rem 0;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.release_year {
+				color: #bcbcbc;
 			}
 		}
 	}
