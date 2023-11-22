@@ -135,7 +135,6 @@ const onImgError = () => {
 		column-gap: 1.5rem;
 
 		.movie-card {
-			animation: fadeIn 0.5s forwards;
 			width: 8.125rem;
 			font-size: 0.75rem;
 			transition: transform 0.2s cubic-bezier(0.34, 2, 0.6, 1),
