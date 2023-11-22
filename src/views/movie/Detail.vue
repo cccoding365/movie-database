@@ -38,27 +38,97 @@
 				<div class="overview-content">{{ MovieDetail.overview }}</div>
 			</div>
 		</div>
+
+		<div class="movie-redits">
+			<div class="movie-redits-title">Cast & Crew</div>
+			<div class="movie-redits-cast">
+				<div
+					class="movie-redits-cast-item"
+					v-for="item in MovieCredits.cast"
+				>
+					<div class="movie-redits-cast-profile">
+						<img
+							class="movie-redits-cast-profile"
+							:src="MOVIE_DB_IMAGE_URL.small + item.profile_path"
+							alt="cast-profile"
+							@error="e => (e.target!.style.display = 'none')"
+						/>
+					</div>
+
+					<div class="name">{{ item.name }}</div>
+					<div class="character">{{ item.character }}</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
 
 <script lang="ts" setup>
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
 import MovieDetail from "@/apis/movie-detail.json";
-
-import MovieSimilar from "@/apis/movie-similar.json";
+import MovieCredits from "@/apis/movie-credits.json";
 
 import { onMounted } from "vue";
-// const props = defineProps({
-// 	id: String,
-// });
 
 onMounted(() => {
 	console.log({ MovieDetail });
-	console.log({ MovieSimilar });
+	console.log({ MovieCredits });
 });
 </script>
 
 <style lang="less" scoped>
+.movie-redits {
+	&-title {
+		color: #fff;
+		font-size: 1.125rem;
+		margin-bottom: 0.5rem;
+	}
+	&-cast {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 1rem;
+		&-item {
+			display: flex;
+			flex-direction: column;
+			// justify-content: flex-end;
+			width: 6.25rem;
+		}
+		&-profile {
+			border-radius: 0.5rem;
+			display: flex;
+			img {
+				width: 100%;
+			}
+			&::after {
+				content: "no photo";
+				font-size: 1.5rem;
+				font-style: oblique;
+				text-transform: capitalize;
+				padding-top: 100%;
+				color: #999;
+				font-weight: bold;
+				z-index: -1;
+			}
+		}
+		.name {
+			font-size: 1rem;
+			margin: 0.5rem 0;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.character {
+			color: #999;
+			font-size: 0.75rem;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+	padding: 0 1rem;
+}
+
 .movie-detail {
 	&-backdrop {
 		width: 100%;
@@ -125,6 +195,9 @@ onMounted(() => {
 	}
 
 	.overview {
+		padding: 0.75rem 0;
+		margin-bottom: 0.5rem;
+		border-bottom: 1px solid #201f28;
 		&-title {
 			color: #fff;
 			font-size: 1.125rem;

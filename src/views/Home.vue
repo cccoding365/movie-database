@@ -59,12 +59,26 @@ const onImgError = () => {
 	.title {
 		font-size: 1.25rem;
 		line-height: 1.75rem;
+		animation: fadeIn 0.5s forwards;
 	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
 	.search-bar {
 		margin: 1rem 0;
 		display: flex;
 		align-items: center;
 		position: relative;
+		animation: fadeIn 0.5s forwards;
 
 		.icon {
 			position: absolute;
@@ -83,6 +97,7 @@ const onImgError = () => {
 	}
 
 	.nav-bar {
+		animation: fadeIn 0.5s forwards;
 		margin: 1rem 0;
 		.nav-list {
 			display: flex;
@@ -120,6 +135,7 @@ const onImgError = () => {
 		column-gap: 1.5rem;
 
 		.movie-card {
+			animation: fadeIn 0.5s forwards;
 			width: 8.125rem;
 			font-size: 0.75rem;
 			transition: transform 0.2s cubic-bezier(0.34, 2, 0.6, 1),
