@@ -1,100 +1,89 @@
 {
     "adult": false,
-    "backdrop_path": "/dIWwZW7dJJtqC6CgWzYkNVKIUm8.jpg",
-    "belongs_to_collection": null,
-    "budget": 0,
+    "backdrop_path": "/qElNES0sHVQcbzvGrTx7ccpGzij.jpg",
+    "belongs_to_collection": {
+        "id": 1073029,
+        "name": "Wandering Earth Collection",
+        "poster_path": "/6qWFQkZfCmDmaAIQlXlBJWNga3k.jpg",
+        "backdrop_path": "/dDG37QLsERXFowAOfWYLwcsag4r.jpg"
+    },
+    "budget": 73801827,
     "genres": [
         {
-            "id": 10749,
-            "name": "Romance"
+            "id": 878,
+            "name": "Science Fiction"
         },
         {
-            "id": 16,
-            "name": "Animation"
+            "id": 28,
+            "name": "Action"
         },
         {
             "id": 18,
             "name": "Drama"
         }
     ],
-    "homepage": "https://www.funimationfilms.com/movie/yourname/",
-    "id": 372058,
-    "imdb_id": "tt5311514",
-    "original_language": "ja",
-    "original_title": "君の名は。",
-    "overview": "High schoolers Mitsuha and Taki are complete strangers living separate lives. But one night, they suddenly switch places. Mitsuha wakes up in Taki’s body, and he in hers. This bizarre occurrence continues to happen randomly, and the two must adjust their lives around each other.",
-    "popularity": 94.495,
-    "poster_path": "/q719jXXEzOoYaps6babgKnONONX.jpg",
+    "homepage": "https://trinitycineasia.com/in-cinemas/the-wandering-earth-ii/",
+    "id": 842675,
+    "imdb_id": "tt13539646",
+    "original_language": "zh",
+    "original_title": "流浪地球2",
+    "overview": "Humans built huge engines on the surface of the earth to find a new home. But the road to the universe is perilous. In order to save earth, young people once again have to step forward to start a race against time for life and death.",
+    "popularity": 137.748,
+    "poster_path": "/pR858ihc6Ls9xohpdRJVjV787ml.jpg",
     "production_companies": [
         {
-            "id": 3756,
-            "logo_path": "/t38uPdbKmyBB8brKKeTFWIwojRz.png",
-            "name": "CoMix Wave Films",
-            "origin_country": "JP"
+            "id": 14714,
+            "logo_path": "/dSHaVKtBCpMU5VP9wMbTkqov62i.png",
+            "name": "China Film Group Corporation",
+            "origin_country": "CN"
         },
         {
-            "id": 882,
-            "logo_path": "/iDw9Xxok1d9WAM2zFicI8p3khTH.png",
-            "name": "TOHO",
-            "origin_country": "JP"
-        },
-        {
-            "id": 2073,
-            "logo_path": "/tWxRSaKmRJNTcmtlXsmn5R4KOSU.png",
-            "name": "KADOKAWA",
-            "origin_country": "JP"
-        },
-        {
-            "id": 8157,
-            "logo_path": "/yHOC2PPmj6j2zzRqwdufCZauFxI.png",
-            "name": "East Japan Marketing & Communications",
-            "origin_country": "JP"
-        },
-        {
-            "id": 14602,
-            "logo_path": "/t9eqx5QCHtu8LxxgYzivqrJAosp.png",
-            "name": "AMUSE",
-            "origin_country": "JP"
-        },
-        {
-            "id": 128617,
+            "id": 191194,
             "logo_path": null,
-            "name": "voque ting",
-            "origin_country": "JP"
-        },
-        {
-            "id": 104184,
-            "logo_path": null,
-            "name": "Lawson Entertainment",
-            "origin_country": "JP"
-        },
-        {
-            "id": 3035,
-            "logo_path": "/oi0rqK6jBfG4TbGuczGlVqFAtPL.png",
-            "name": "4Kids Entertainment",
-            "origin_country": "US"
+            "name": "Guo Fan Culture and Media",
+            "origin_country": ""
         }
     ],
     "production_countries": [
         {
-            "iso_3166_1": "JP",
-            "name": "Japan"
+            "iso_3166_1": "CN",
+            "name": "China"
         }
     ],
-    "release_date": "2016-08-26",
-    "revenue": 357986087,
-    "runtime": 106,
+    "release_date": "2023-01-22",
+    "revenue": 604380922,
+    "runtime": 173,
     "spoken_languages": [
+        {
+            "english_name": "Mandarin",
+            "iso_639_1": "zh",
+            "name": "普通话"
+        },
+        {
+            "english_name": "English",
+            "iso_639_1": "en",
+            "name": "English"
+        },
+        {
+            "english_name": "French",
+            "iso_639_1": "fr",
+            "name": "Français"
+        },
         {
             "english_name": "Japanese",
             "iso_639_1": "ja",
             "name": "日本語"
+        },
+        {
+            "english_name": "Russian",
+            "iso_639_1": "ru",
+            "name": "Pусский"
         }
     ],
     "status": "Released",
-    "tagline": "It was almost like seeing something out of a dream, nothing more or less than a breathtaking view.",
-    "title": "Your Name.",
+    "tagline": "",
+    "title": "The Wandering Earth II",
     "video": false,
-    "vote_average": 8.506,
-    "vote_count": 10505
+    "vote_average": 7.234,
+    "vote_count": 396
 }

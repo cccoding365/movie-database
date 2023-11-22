@@ -182,12 +182,14 @@ onMounted(() => {
 					margin-bottom: 0.5rem;
 				}
 				.value {
+					display: flex;
+					flex-wrap: wrap;
 					span {
 						border-radius: 999px;
 						padding: 0.2rem 0.5rem;
 						border: 1px solid #999;
 						font-size: 0.6rem;
-						margin-right: 0.5rem;
+						margin: 0 0.5rem 0.5rem 0;
 					}
 				}
 			}
