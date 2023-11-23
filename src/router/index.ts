@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-	{ path: "/", component: () => import("../views/Home.vue") },
+	{ path: "/", component: () => import("@/views/Home.vue") },
 	{
 		path: "/movie/:id",
-		component: () => import("../views/movie/Detail.vue"),
+		component: () => import("@/views/Detail.vue"),
 		props: true,
 	},
 ];

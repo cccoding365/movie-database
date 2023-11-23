@@ -68,13 +68,6 @@
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
 import MovieDetail from "@/apis/movie-detail.json";
 import MovieCredits from "@/apis/movie-credits.json";
-
-import { onMounted } from "vue";
-
-onMounted(() => {
-	console.log({ MovieDetail });
-	console.log({ MovieCredits });
-});
 </script>
 
 <style lang="less" scoped>
@@ -92,7 +85,6 @@ onMounted(() => {
 		&-item {
 			display: flex;
 			flex-direction: column;
-			// justify-content: flex-end;
 			width: 6.25rem;
 		}
 		&-profile {
