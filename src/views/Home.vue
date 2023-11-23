@@ -5,21 +5,23 @@
 			<i class="icon fas fa-search" />
 			<input type="text" placeholder="Sherlock Holmes" />
 		</div>
-		<nav class="nav-bar">
-			<ul class="nav-list">
-				<li class="nav-list-item active">Now playing</li>
-				<li class="nav-list-item">Popular</li>
-				<li class="nav-list-item">Top rated</li>
-				<li class="nav-list-item">Upcoming</li>
-			</ul>
-		</nav>
 
-		<MovieList />
+		<MovieMenu @switch-type="onMovieTypeSelect" />
+
+		<MovieList :type="type" />
 	</div>
 </template>
 
 <script lang="ts" setup>
 import MovieList from "@/components/MovieList.vue";
+import MovieMenu from "@/components/MovieMenu.vue";
+import { ref } from "vue";
+
+const type = ref("");
+
+const onMovieTypeSelect = (e: any) => {
+	type.value = e;
+};
 </script>
 
 <style lang="less" scoped>
@@ -29,17 +31,6 @@ import MovieList from "@/components/MovieList.vue";
 		font-size: 1.25rem;
 		line-height: 1.75rem;
 		animation: fadeIn 0.5s forwards;
-	}
-
-	@keyframes fadeIn {
-		0% {
-			opacity: 0;
-			transform: translateY(20px);
-		}
-		100% {
-			opacity: 1;
-			transform: translateX(0);
-		}
 	}
 
 	.search-bar {
@@ -62,37 +53,6 @@ import MovieList from "@/components/MovieList.vue";
 			border-radius: 999px;
 			color: #6e6d76;
 			background-color: #211f30;
-		}
-	}
-
-	.nav-bar {
-		animation: fadeIn 0.5s forwards;
-		margin: 1rem 0;
-		.nav-list {
-			display: flex;
-			font-size: 0.875rem;
-
-			&-item {
-				margin-right: 1rem;
-				white-space: nowrap;
-				&.active {
-					color: transparent;
-					-webkit-background-clip: text;
-					background-clip: text;
-					background-image: linear-gradient(90deg, #f44c35, #ff8f71);
-					position: relative;
-					&::after {
-						content: "";
-						position: absolute;
-						height: 0.125rem;
-						width: 30%;
-						background: linear-gradient(90deg, #f44c35, #ff8f71);
-						left: 0;
-						top: 120%;
-						border-radius: 999px;
-					}
-				}
-			}
 		}
 	}
 }

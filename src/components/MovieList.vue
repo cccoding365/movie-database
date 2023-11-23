@@ -22,6 +22,15 @@
 <script lang="ts" setup>
 import MovieData from "@/apis/fake-data.json";
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
+import { onMounted } from "vue";
+
+const props = defineProps({
+	type: String,
+});
+
+onMounted(() => {
+	console.log(props.type);
+});
 </script>
 
 <style lang="less" scoped>
