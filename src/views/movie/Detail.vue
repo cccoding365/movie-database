@@ -48,6 +48,7 @@
 				>
 					<div class="movie-redits-cast-profile">
 						<img
+							v-if="item.profile_path"
 							class="movie-redits-cast-profile"
 							:src="MOVIE_DB_IMAGE_URL.small + item.profile_path"
 							alt="cast-profile"
