@@ -22,15 +22,12 @@
 <script lang="ts" setup>
 import MovieData from "@/apis/fake-data.json";
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
-import { onMounted } from "vue";
 
-const props = defineProps({
-	type: String,
-});
+const fetchMovieList = (e: String) => {
+	console.log("fetchMovieList", e);
+};
 
-onMounted(() => {
-	console.log(props.type);
-});
+defineExpose({ fetchMovieList });
 </script>
 
 <style lang="less" scoped>

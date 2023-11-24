@@ -8,7 +8,7 @@
 
 		<MovieMenu @switch-type="onMovieTypeSelect" />
 
-		<MovieList :type="type" />
+		<MovieList ref="MovieListRef" />
 	</div>
 </template>
 
@@ -17,10 +17,10 @@ import MovieList from "@/components/MovieList.vue";
 import MovieMenu from "@/components/MovieMenu.vue";
 import { ref } from "vue";
 
-const type = ref("");
+const MovieListRef = ref(null);
 
 const onMovieTypeSelect = (e: any) => {
-	type.value = e;
+	(MovieListRef.value as any).fetchMovieList(e);
 };
 </script>
 
