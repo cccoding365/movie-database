@@ -38,12 +38,14 @@ const onClick = (id: Number, e: String) => {
 .nav-list {
 	animation: fadeIn 0.5s forwards;
 	display: flex;
-	margin: 1rem 0;
+	margin: 1.5rem 0;
 	font-size: 0.875rem;
 
 	&-item {
 		margin-right: 1rem;
 		white-space: nowrap;
+		cursor: pointer;
+
 		&.active {
 			color: transparent;
 			-webkit-background-clip: text;
@@ -54,7 +56,7 @@ const onClick = (id: Number, e: String) => {
 				content: "";
 				position: absolute;
 				height: 0.125rem;
-				width: 30%;
+				width: 50%;
 				background: linear-gradient(90deg, #f44c35, #ff8f71);
 				left: 0;
 				top: 120%;

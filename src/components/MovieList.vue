@@ -3,7 +3,7 @@
 		<router-link
 			:to="`movie/${item.id}`"
 			class="movie-card"
-			v-for="item in MovieData.results"
+			v-for="item in MovieList.results"
 		>
 			<img
 				class="poster"
@@ -20,12 +20,41 @@
 </template>
 
 <script lang="ts" setup>
-import MovieData from "@/apis/fake-data.json";
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
 
-const fetchMovieList = (e: String) => {
-	console.log("fetchMovieList", e);
+import nowPlaying from "@/mocks/movie_now-playing.json";
+import popular from "@/mocks/movie_popular.json";
+import topRated from "@/mocks/movie_top-rated.json";
+import upcoming from "@/mocks/movie_upcoming.json";
+
+import { onMounted, ref } from "vue";
+
+let MovieList = ref<{
+	page: Number;
+	results: any[];
+	total_pages: Number;
+	total_results: Number;
+}>({
+	page: 0,
+	results: [],
+	total_pages: 0,
+	total_results: 0,
+});
+
+const fetchMovieList = (e: string) => {
+	const movieListMap = new Map([
+		["now_playing", nowPlaying],
+		["popular", popular],
+		["top_rated", topRated],
+		["upcoming", upcoming],
+	]);
+
+	MovieList.value = movieListMap.get(e)!;
 };
+
+onMounted(() => {
+	fetchMovieList("now_playing");
+});
 
 defineExpose({ fetchMovieList });
 </script>
@@ -35,8 +64,8 @@ defineExpose({ fetchMovieList });
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	row-gap: 2rem;
-	column-gap: 1.5rem;
+	gap: 1.75rem;
+	animation: fadeIn 0.5s forwards;
 
 	.movie-card {
 		width: 8.125rem;
