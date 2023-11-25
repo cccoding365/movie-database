@@ -28,6 +28,7 @@ const onEnterKeyup = (e: KeyboardEvent) => {
 	padding: 1rem;
 	.title {
 		font-size: 1.25rem;
+		font-weight: bold;
 		line-height: 1.75rem;
 		animation: fadeIn 0.5s forwards;
 	}

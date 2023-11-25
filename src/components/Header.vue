@@ -1,5 +1,5 @@
 <template>
-	<header :class="{ fixed: y > 60 }">
+	<header :class="{ fixed: y > 10 }">
 		<div class="container">
 			<router-link class="router-link" to="/" @click="onRouteToHome">
 				<img class="logo" src="/favicon.svg" alt="Movie Database" />
