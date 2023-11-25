@@ -10,24 +10,18 @@
 			/>
 		</div>
 
-		<MovieMenu @switch-type="onMovieTypeSelect" />
-
 		<MovieList ref="MovieListRef" />
 	</div>
 </template>
 
 <script lang="ts" setup>
 import MovieList from "@/components/MovieList.vue";
-import MovieMenu from "@/components/MovieMenu.vue";
 import { ref } from "vue";
 
 import { onKeyStroke } from "@vueuse/core";
 
 const MovieListRef = ref(null);
 const SearchInput = ref<HTMLElement | null>(null);
-const onMovieTypeSelect = (e: any) => {
-	(MovieListRef.value as any).fetchMovieList(e);
-};
 
 onKeyStroke(
 	"Enter",

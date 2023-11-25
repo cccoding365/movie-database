@@ -1,4 +1,6 @@
 <template>
+	<MovieMenu @switch-type="fetchMovieList($event)" />
+
 	<div class="movie-container">
 		<router-link
 			:to="`movie/${item.id}`"
@@ -20,6 +22,7 @@
 </template>
 
 <script lang="ts" setup>
+import MovieMenu from "@/components/MovieMenu.vue";
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
 
 import nowPlaying from "@/mocks/movie_now-playing.json";

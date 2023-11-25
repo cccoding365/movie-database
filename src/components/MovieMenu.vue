@@ -25,10 +25,10 @@ const menuList = [
 let activeId = ref<Number>(1);
 
 const emits = defineEmits<{
-	(event: "switchType", filter: String): void;
+	(event: "switchType", filter: string): void;
 }>();
 
-const onClick = (id: Number, e: String) => {
+const onClick = (id: Number, e: string) => {
 	activeId.value = id;
 	emits("switchType", e);
 };
