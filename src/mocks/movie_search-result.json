@@ -1,0 +1,380 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/a5PNkyt8zx6sSXCzgKpKAaAXNJw.jpg",
+            "genre_ids": [
+                10402,
+                18
+            ],
+            "id": 586101,
+            "original_language": "en",
+            "original_title": "Music",
+            "overview": "Zu, a free spirit estranged from her family, suddenly finds herself the sole guardian of her half-sister, Music, a teenager on the autism spectrum whose whole world order has been beautifully crafted by her late grandmother. The film soon challenges whether it is Zu or Music who has a better view of the world, and that love, trust, and being able to be there for each other is everything.",
+            "popularity": 11.224,
+            "poster_path": "/xzDXq7ofNkvIovB6Vb8KZpjqkK0.jpg",
+            "release_date": "2021-01-14",
+            "title": "Music",
+            "video": false,
+            "vote_average": 5.6,
+            "vote_count": 131
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/x2qHDb3UMaCow1tmeyzk2Mxoo57.jpg",
+            "genre_ids": [
+                18
+            ],
+            "id": 666942,
+            "original_language": "el",
+            "original_title": "Music",
+            "overview": "Abandoned at birth in the Greek mountains on a stormy night, Jon is taken in and adopted, without having known his father or mother.  As a young man, he meets Iro, a warden in the prison where he is incarcerated after a deadly tragic accident. She seems to seek out his presence, takes care of him, records music for him. Jon’s eyesight begins to fail …  From then on, for every loss he suffers, he will gain something in return. Thus, in spite of going blind, he will live his life more fully than ever.",
+            "popularity": 1.547,
+            "poster_path": "/2dJtv2aywuc4PcJ9qXGNYXNLf0B.jpg",
+            "release_date": "2023-03-08",
+            "title": "Music",
+            "video": false,
+            "vote_average": 8,
+            "vote_count": 3
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/7FDKp5eS2pIJVA4klt0lPNXrBlt.jpg",
+            "genre_ids": [],
+            "id": 498563,
+            "original_language": "en",
+            "original_title": "Music",
+            "overview": "Spiced with surreal, Kafkaesque twists, MUSIC is about a man who loves music and is fascinated by the fair sex. But he is not quite sure why and how he has ended up in this strange hotel room...",
+            "popularity": 1.401,
+            "poster_path": "/oD1usZXecHozGs6k54pFRhKCbeK.jpg",
+            "release_date": "2003-06-04",
+            "title": "Music",
+            "video": false,
+            "vote_average": 7,
+            "vote_count": 1
+        },
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [
+                99
+            ],
+            "id": 592806,
+            "original_language": "en",
+            "original_title": "Music",
+            "overview": "The story of music and the music industry told through interviews with musicians, composers and producers across genres.",
+            "popularity": 0.724,
+            "poster_path": "/iCYnHKi7Q73g0J95iP8YrsDNY7I.jpg",
+            "release_date": "2010-10-15",
+            "title": "Music",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [],
+            "id": 308433,
+            "original_language": "en",
+            "original_title": "Music",
+            "overview": "A group of infants with electric guitars compose a shocking violent punk rock song which surprises, saddens and offends their mothers.",
+            "popularity": 0.6,
+            "poster_path": null,
+            "release_date": "1983-01-01",
+            "title": "Music",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/wpsfNX6NjYG5HxQeATBQbog5IWk.jpg",
+            "genre_ids": [
+                99,
+                10402
+            ],
+            "id": 1166369,
+            "original_language": "es",
+            "original_title": "La música está servida: Sofía Carson",
+            "overview": "",
+            "popularity": 2.133,
+            "poster_path": "/ciVQb4mfqMACANKK0zryCiMc3pK.jpg",
+            "release_date": "2023-09-08",
+            "title": "Music is on the Menu: Sofía Carson",
+            "video": false,
+            "vote_average": 9.833,
+            "vote_count": 3
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/k6bcbbqAynShOVkLrEh9wbTo7No.jpg",
+            "genre_ids": [
+                99,
+                10402
+            ],
+            "id": 1123007,
+            "original_language": "pt",
+            "original_title": "Minha Música, Minha Terra: ANAVITÓRIA",
+            "overview": "For Ana Caetano and Vitória Falcão, Tocantins' city of Araguaína is one of the most special places in the world. They both grew up there and where they received their musical education before, they even knew each other. They have since moved on to become one of the biggest names in Brazilian music.",
+            "popularity": 0.6,
+            "poster_path": "/zGvc8bSXguC59TJwHHz40kxllvR.jpg",
+            "release_date": "2023-10-13",
+            "title": "My Music, My Roots: ANAVITÓRIA",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/kD5k2vz5KzwmT61pp4MOnFvw7R6.jpg",
+            "genre_ids": [
+                99,
+                10402
+            ],
+            "id": 1169177,
+            "original_language": "es",
+            "original_title": "Mi música, mi tierra: Luciano Pereyra",
+            "overview": "Luciano was born in Luján, a city in the province of Buenos Aires, and still lives there. His roots, his mother, his father, and music —which has always been in his life— all remain there. Luciano walks the streets of the place that saw him grow up and gets emotional as he meets his people, who remember his early years. He reflects on the importance of dreaming as he prepares for a major show.",
+            "popularity": 0.872,
+            "poster_path": "/oBVWVAKUlqNPxeJ8pYr6xDrLW3F.jpg",
+            "release_date": "2023-10-13",
+            "title": "My Music, My Roots: Luciano Pereyra",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/8cCTy7gISgeyF7bWj3quwhAc0kf.jpg",
+            "genre_ids": [
+                99,
+                10402
+            ],
+            "id": 1169185,
+            "original_language": "pt",
+            "original_title": "Minha Música, Minha Terra: Felipe Araújo",
+            "overview": "Felipe visits Goiânia in a moving journey back to his musical roots: his childhood home, the church where he sang, his school, the impact his father had during his first steps in the music industry, his friends, grandmother, and cousins. He will also remember his greatest idol: his brother Cristiano. Felipe goes back in time and remembers when a career as a singer was just a dream.",
+            "popularity": 0.625,
+            "poster_path": "/26bHW3JNMaguHjHWGr3vPD9gAwz.jpg",
+            "release_date": "2023-09-15",
+            "title": "My Music, My Roots: Felipe Araújo",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/kBoAybabIJhsEDnKrBOjH05HeTG.jpg",
+            "genre_ids": [
+                99,
+                10402
+            ],
+            "id": 1166396,
+            "original_language": "es",
+            "original_title": "La música está servida: Sofía Reyes",
+            "overview": "",
+            "popularity": 1.242,
+            "poster_path": "/1Egb1zTZwce5JmTmJRW9bndzoK3.jpg",
+            "release_date": "2023-09-22",
+            "title": "Music is on the Menu: Sofía Reyes",
+            "video": false,
+            "vote_average": 7.5,
+            "vote_count": 2
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/nnaCQhHnzQ0gfhkncqz3Kiterf5.jpg",
+            "genre_ids": [
+                10402,
+                99
+            ],
+            "id": 1123037,
+            "original_language": "pt",
+            "original_title": "A Música Está Servida: Gloria Groove",
+            "overview": "",
+            "popularity": 0.768,
+            "poster_path": "/eWt0wpsu6TfW1XbtzpSJQj6PnI6.jpg",
+            "release_date": "2023-10-06",
+            "title": "Music is on the Menu: Gloria Groove",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/yLb8rpi26irY4tbOvqLHQNSOXNs.jpg",
+            "genre_ids": [
+                99,
+                10402
+            ],
+            "id": 1169172,
+            "original_language": "es",
+            "original_title": "Mi música, mi tierra: Pablo Alborán",
+            "overview": "Pablo Alborán visits Málaga, the city where he was born. Málaga is present both in his spirit and in his songs. There he listened to the records that made him who he is. He remembers the smell of summer and the famous \\\"La Vie en Rose\\\" that his grandfather sang as he crushed the ice in the refrigerator. We will discover an intimate side of Pablo as he tells us about his first bonds with music.",
+            "popularity": 0.84,
+            "poster_path": "/vBqt22tQGRGkj1AHzYUWNTW2rxO.jpg",
+            "release_date": "2023-09-15",
+            "title": "My Music, My Roots: Pablo Alborán",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/akbFzcoyjYdXEdyvlB2IjuURUKH.jpg",
+            "genre_ids": [
+                99,
+                10402
+            ],
+            "id": 1166397,
+            "original_language": "es",
+            "original_title": "La música está servida: Mau y Ricky",
+            "overview": "Mau and Ricky cook together with renowned Colombian chef Juan Manuel Barrientos. The duo wants to treat some of their closest friends and will count on the help of the award-winning chef. As they prepare ceviche, the brothers laugh sharing intimate moments of their relationship. The Michelin-starred chef explains his techniques and the duo talks about their relationship with cooking. Once the dish is ready, everyone sits down at the table. The meal finishes with a jam session by Mau and Ricky.",
+            "popularity": 1.473,
+            "poster_path": "/51LVuUhLaUh0ACWADfEV7pAk6nN.jpg",
+            "release_date": "2023-08-25",
+            "title": "Music is on the Menu: Mau y Ricky",
+            "video": false,
+            "vote_average": 10,
+            "vote_count": 1
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/gv0wSS3oWOndR4WVrpDm40xPkAh.jpg",
+            "genre_ids": [
+                10402,
+                99
+            ],
+            "id": 1123027,
+            "original_language": "pt",
+            "original_title": "A Música Está Servida: Banda Melim",
+            "overview": "Rodrigo, Diogo, and Gabriela Melim welcome Chef Tati Lund. Together, they will prepare burgers using only vegan and organic ingredients: jackfruit meat and chickpeas.",
+            "popularity": 0.932,
+            "poster_path": "/t7uMkGAU2lpK4fNbqIbDcMZ1WS4.jpg",
+            "release_date": "2023-09-22",
+            "title": "Music is on the Menu: Melim",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [
+                10402,
+                99
+            ],
+            "id": 948555,
+            "original_language": "en",
+            "original_title": "Music!",
+            "overview": "A BAFTA award nominated documentary looking at music in Britain including soul, folk, pop, rock opera and brass bands.",
+            "popularity": 0.6,
+            "poster_path": null,
+            "release_date": "1968-01-01",
+            "title": "Music!",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/aYkAoBaz0JqyVhTXFUjf9FFpxjE.jpg",
+            "genre_ids": [
+                99,
+                10402
+            ],
+            "id": 1169174,
+            "original_language": "es",
+            "original_title": "Mi música, mi tierra: Carlos Vives",
+            "overview": "Carlos Vives remembers his life in Santa Marta and Bogotá, Colombia. It was there that his artistic sensitivity turned into a reality. In an intimate way, he recalls the importance his father and brother had for his early musical training and the songs of the travelling artists who visited his home, which have forever been an inspiration for him. Carlos talks about the voices of the street which have left his songs with a particular tonality thanks to which he has managed to place Colombian music at the very top of the global scene.",
+            "popularity": 0.934,
+            "poster_path": "/grvmauoCCjMtdqOLJg2EyyR1JK4.jpg",
+            "release_date": "2023-09-29",
+            "title": "My Music, My Roots: Carlos Vives",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/hzjJR0lsi0irw1n8qEZt5sTMt8E.jpg",
+            "genre_ids": [
+                18
+            ],
+            "id": 475242,
+            "original_language": "it",
+            "original_title": "La musica del silenzio",
+            "overview": "Born with a serious eye condition that eventually leads to his blindness, Bocelli nevertheless rises above the challenges, driven by great ambitions towards his passion. The silent pursuit of his daily mission continues.",
+            "popularity": 13.067,
+            "poster_path": "/btoHPtkDOEkHC27UpSpqzPXVT22.jpg",
+            "release_date": "2017-09-18",
+            "title": "The Music of Silence",
+            "video": false,
+            "vote_average": 7.154,
+            "vote_count": 81
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/yRe6mXthAywwqdWF46huHhaKQxq.jpg",
+            "genre_ids": [
+                35,
+                10402,
+                53
+            ],
+            "id": 1126009,
+            "original_language": "en",
+            "original_title": "FNAF The Musical",
+            "overview": "Based on the popular survival horror video games by Scott Cawthon, this outrageous musical follows Mark, Nate, Freddy and the gang on a musical adventure meeting other FNAF characters like Springtrap, Purple Guy and Phone Guy.",
+            "popularity": 45.452,
+            "poster_path": "/hur5Xo78LRcWbQJNADKiPDoRjxo.jpg",
+            "release_date": "2016-07-30",
+            "title": "FNAF The Musical",
+            "video": true,
+            "vote_average": 9.375,
+            "vote_count": 4
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/nWs0auTqn2UaFGfTKtUE5tlTeBu.jpg",
+            "genre_ids": [
+                10751,
+                35,
+                14
+            ],
+            "id": 668482,
+            "original_language": "en",
+            "original_title": "Roald Dahl's Matilda the Musical",
+            "overview": "An extraordinary young girl discovers her superpower and summons the remarkable courage, against all odds, to help others change their stories, whilst also taking charge of her own destiny. Standing up for what's right, she's met with miraculous results.",
+            "popularity": 63.139,
+            "poster_path": "/ga8R3OiOMMgSvZ4cOj8x7prUNYZ.jpg",
+            "release_date": "2022-11-25",
+            "title": "Roald Dahl's Matilda the Musical",
+            "video": false,
+            "vote_average": 6.759,
+            "vote_count": 643
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/d0gYLBchEOdevwKMDq3u9HyGYhs.jpg",
+            "genre_ids": [
+                99,
+                10402
+            ],
+            "id": 1169156,
+            "original_language": "es",
+            "original_title": "Mi música, mi tierra: Carlos Rivera",
+            "overview": "Carlos returns to Huamantla, Mexico, the dreamy town where he was raised. During those years, his grandma was his support: she encouraged him to move forwards. The road was not easy. He had to organize concerts himself, with the financial help of local businesses. He is eternally grateful to them and will perform for the people of the town who helped him.",
+            "popularity": 1.548,
+            "poster_path": "/3DtZfeZFcVOsrLl3KOP7WgjWv75.jpg",
+            "release_date": "2023-09-01",
+            "title": "My Music, My Roots: Carlos Rivera",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        }
+    ],
+    "total_pages": 168,
+    "total_results": 3355
+}

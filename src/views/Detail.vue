@@ -52,7 +52,7 @@
 							class="movie-redits-cast-profile"
 							:src="MOVIE_DB_IMAGE_URL.small + item.profile_path"
 							alt="cast-profile"
-							@error="e => ((e.target as any).style.display = 'none')"
+							@error="e => ((<HTMLImageElement>e.target).style.display = 'none')"
 						/>
 					</div>
 

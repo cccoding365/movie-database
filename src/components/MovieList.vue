@@ -1,5 +1,8 @@
 <template>
-	<MovieMenu @switch-type="fetchMovieList($event)" />
+	<MovieMenu
+		v-show="isShowMovieMenu"
+		@switch-type="fetchMovieList({ type: $event })"
+	/>
 
 	<div class="movie-container">
 		<router-link
@@ -7,10 +10,15 @@
 			class="movie-card"
 			v-for="item in MovieList.results"
 		>
-			<img
-				class="poster"
-				:src="MOVIE_DB_IMAGE_URL.medium + item.poster_path"
-			/>
+			<div class="poster">
+				<img
+					v-if="item.poster_path"
+					class="poster"
+					:src="MOVIE_DB_IMAGE_URL.medium + item.poster_path"
+					alt="movie-poster"
+					@error="e => ((<HTMLImageElement>e.target).style.display = 'none')"
+				/>
+			</div>
 			<div class="original_title" :title="item.title">
 				{{ item.title }}
 			</div>
@@ -29,9 +37,12 @@ import nowPlaying from "@/mocks/movie_now-playing.json";
 import popular from "@/mocks/movie_popular.json";
 import topRated from "@/mocks/movie_top-rated.json";
 import upcoming from "@/mocks/movie_upcoming.json";
+import searchResult from "@/mocks/movie_search-result.json";
 
 import { onMounted, ref } from "vue";
 import { useScroll, useEventListener } from "@vueuse/core";
+
+const isShowMovieMenu = ref<Boolean>(true);
 
 let MovieList = ref<{
 	page: Number;
@@ -45,7 +56,7 @@ let MovieList = ref<{
 	total_results: 0,
 });
 
-const fetchMovieList = (e: string) => {
+const fetchMovieList = ({ type, query }: { type?: string; query?: string }) => {
 	const movieListMap = new Map([
 		["now_playing", nowPlaying],
 		["popular", popular],
@@ -53,7 +64,15 @@ const fetchMovieList = (e: string) => {
 		["upcoming", upcoming],
 	]);
 
-	MovieList.value = movieListMap.get(e)!;
+	if (query) {
+		isShowMovieMenu.value = false;
+		console.log(query);
+
+		MovieList.value = searchResult;
+		return;
+	}
+
+	MovieList.value = movieListMap.get(type!)!;
 };
 
 useEventListener(window, "scroll", () => {
@@ -68,7 +87,7 @@ useEventListener(window, "scroll", () => {
 });
 
 onMounted(() => {
-	fetchMovieList("now_playing");
+	fetchMovieList({ type: "now_playing" });
 });
 
 defineExpose({ fetchMovieList });
@@ -83,6 +102,9 @@ defineExpose({ fetchMovieList });
 	animation: fadeIn 0.5s forwards;
 
 	.movie-card {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
 		width: 8.125rem;
 		font-size: 0.75rem;
 		transition: transform 0.2s cubic-bezier(0.34, 2, 0.6, 1),
@@ -93,8 +115,22 @@ defineExpose({ fetchMovieList });
 		}
 
 		.poster {
-			width: 100%;
+			display: flex;
 			border-radius: 0.5rem;
+			img {
+				width: 100%;
+			}
+			&::after {
+				content: "no poster";
+				flex: 1;
+				font-size: 1.375rem;
+				font-style: oblique;
+				text-transform: capitalize;
+				padding-top: 100%;
+				color: #999;
+				font-weight: bold;
+				z-index: -1;
+			}
 		}
 		.original_title {
 			text-align: left;

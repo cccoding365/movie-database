@@ -11,16 +11,22 @@
 			/>
 		</div>
 
-		<MovieList />
+		<MovieList ref="MovieListRef" />
 	</div>
 </template>
 
 <script lang="ts" setup>
 import MovieList from "@/components/MovieList.vue";
+import { ref } from "vue";
 
 const onEnterKeyup = (e: KeyboardEvent) => {
-	console.log((e.target as HTMLInputElement).value);
+	const query = (e.target as HTMLInputElement).value;
+	if (!query) return;
+
+	(MovieListRef.value as any).fetchMovieList({ query });
 };
+
+const MovieListRef = ref<HTMLElement | null>(null);
 </script>
 
 <style lang="less" scoped>
