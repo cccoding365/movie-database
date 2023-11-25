@@ -7,29 +7,20 @@
 				ref="SearchInput"
 				type="text"
 				placeholder="Sherlock Holmes"
+				@keyup.enter="onEnterKeyup"
 			/>
 		</div>
 
-		<MovieList ref="MovieListRef" />
+		<MovieList />
 	</div>
 </template>
 
 <script lang="ts" setup>
 import MovieList from "@/components/MovieList.vue";
-import { ref } from "vue";
 
-import { onKeyStroke } from "@vueuse/core";
-
-const MovieListRef = ref(null);
-const SearchInput = ref<HTMLElement | null>(null);
-
-onKeyStroke(
-	"Enter",
-	() => {
-		console.log(1111);
-	},
-	{ target: SearchInput },
-);
+const onEnterKeyup = (e: KeyboardEvent) => {
+	console.log((e.target as HTMLInputElement).value);
+};
 </script>
 
 <style lang="less" scoped>
