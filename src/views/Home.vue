@@ -3,7 +3,11 @@
 		<div class="title">Find Movies, TV series, and more...</div>
 		<div class="search-bar">
 			<i class="icon fas fa-search" />
-			<input type="text" placeholder="Sherlock Holmes" />
+			<input
+				ref="SearchInput"
+				type="text"
+				placeholder="Sherlock Holmes"
+			/>
 		</div>
 
 		<MovieMenu @switch-type="onMovieTypeSelect" />
@@ -17,11 +21,21 @@ import MovieList from "@/components/MovieList.vue";
 import MovieMenu from "@/components/MovieMenu.vue";
 import { ref } from "vue";
 
-const MovieListRef = ref(null);
+import { onKeyStroke } from "@vueuse/core";
 
+const MovieListRef = ref(null);
+const SearchInput = ref<HTMLElement | null>(null);
 const onMovieTypeSelect = (e: any) => {
 	(MovieListRef.value as any).fetchMovieList(e);
 };
+
+onKeyStroke(
+	"Enter",
+	() => {
+		console.log(1111);
+	},
+	{ target: SearchInput },
+);
 </script>
 
 <style lang="less" scoped>

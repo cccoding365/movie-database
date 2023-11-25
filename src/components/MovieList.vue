@@ -28,6 +28,7 @@ import topRated from "@/mocks/movie_top-rated.json";
 import upcoming from "@/mocks/movie_upcoming.json";
 
 import { onMounted, ref } from "vue";
+import { useScroll, useEventListener } from "@vueuse/core";
 
 let MovieList = ref<{
 	page: Number;
@@ -51,6 +52,17 @@ const fetchMovieList = (e: string) => {
 
 	MovieList.value = movieListMap.get(e)!;
 };
+
+useEventListener(window, "scroll", () => {
+	const { arrivedState } = useScroll(window, {
+		behavior: "smooth",
+	});
+
+	if (arrivedState.bottom) {
+		console.log("Arrived bottom");
+		MovieList.value.results.push(...popular.results);
+	}
+});
 
 onMounted(() => {
 	fetchMovieList("now_playing");
