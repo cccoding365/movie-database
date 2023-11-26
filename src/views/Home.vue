@@ -10,7 +10,7 @@
 				@keyup.enter="onMovieSearch"
 			/>
 		</div>
-		<div v-show="isShowMenu" class="menu-list">
+		<div v-if="isShowMenu" class="menu-list">
 			<span
 				:class="['menu-list-item', i.id === activeId ? 'active' : '']"
 				v-for="i in menuList"
@@ -19,6 +19,11 @@
 			>
 				{{ i.label }}
 			</span>
+		</div>
+
+		<div v-else class="search-result-title">
+			{{ `SEARCH RESULTS "${searchQuery}"` }}
+			<i class="icon fas fa-times" @click="onSearchClose" />
 		</div>
 
 		<div class="movie-list">
@@ -66,6 +71,13 @@ const searchQuery = ref<String>("");
 const isShowMenu = ref<Boolean>(true);
 const onMovieSearch = async () => {
 	MovieList.value = await searchMovies({ query: searchQuery.value, page: 1 });
+	isShowMenu.value = false;
+};
+
+const onSearchClose = () => {
+	isShowMenu.value = true;
+	searchQuery.value = "";
+	fetchMovieList();
 };
 
 const activeId = ref<Number>(1);
@@ -94,7 +106,6 @@ useEventListener(window, "scroll", async () => {
 	.title {
 		font-size: 1.25rem;
 		font-weight: bold;
-		line-height: 1.75rem;
 		animation: fadeIn 0.5s forwards;
 	}
 
@@ -106,6 +117,7 @@ useEventListener(window, "scroll", async () => {
 		animation: fadeIn 0.5s forwards;
 
 		.icon {
+			color: #f44c35;
 			position: absolute;
 			left: 1rem;
 		}
@@ -122,7 +134,6 @@ useEventListener(window, "scroll", async () => {
 	}
 	.menu-list {
 		animation: fadeIn 0.5s forwards;
-		margin: 1.5rem 0;
 		font-size: 0.875rem;
 
 		&-item {
@@ -150,10 +161,25 @@ useEventListener(window, "scroll", async () => {
 		}
 	}
 
+	.search-result-title {
+		font-size: 0.875rem;
+		color: transparent;
+		-webkit-background-clip: text;
+		background-clip: text;
+		background-image: linear-gradient(90deg, #f44c35, #ff8f71);
+		display: flex;
+		align-items: center;
+		.icon {
+			margin-left: 1rem;
+			cursor: pointer;
+		}
+	}
+
 	.movie-list {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+		padding: 1.75rem 0;
 		gap: 1.75rem;
 		animation: fadeIn 0.5s forwards;
 

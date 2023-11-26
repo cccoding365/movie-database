@@ -56,12 +56,15 @@ header {
 			margin-right: 1rem;
 		}
 		.title {
-			color: #f44c36;
 			font-weight: bold;
 			text-transform: uppercase;
+			color: transparent;
+			-webkit-background-clip: text;
+			background-clip: text;
+			background-image: linear-gradient(90deg, #f44c35, #ff8f71);
 		}
 		.more-icon {
-			color: #f44c36;
+			color: #ff8f71;
 			margin-left: auto;
 		}
 	}

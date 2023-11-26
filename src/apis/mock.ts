@@ -38,7 +38,7 @@ export const searchMovies = ({
 		if (query) {
 			setTimeout(() => {
 				resolve(searchResult);
-			}, 1000);
+			}, 100);
 		} else {
 			resolve({ results: [] });
 		}
