@@ -1,6 +1,5 @@
 import axios from "@/utils/axios";
-import { IMovieReqOption, ISearchMoviesReqOption } from "@/types/payload";
-import { IMovieList } from "@/types/response";
+import { IMovieReqOption, IMovieList, ISearchMoviesReqOption } from "@/types";
 
 import nowPlaying from "@/mocks/movie_now-playing.json";
 import popular from "@/mocks/movie_popular.json";
@@ -37,9 +36,11 @@ export const searchMovies = ({
 }: ISearchMoviesReqOption): Promise<IMovieList> => {
 	return new Promise((resolve, reject) => {
 		if (query) {
-			resolve(searchResult);
+			setTimeout(() => {
+				resolve(searchResult);
+			}, 1000);
 		} else {
-			reject({ results: [] });
+			resolve({ results: [] });
 		}
 	});
 };

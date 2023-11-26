@@ -1,6 +1,5 @@
 import axios from "@/utils/axios";
-import { IMovieReqOption, ISearchMoviesReqOption } from "@/types/payload";
-import { IMovieList } from "@/types/response";
+import { IMovieReqOption, IMovieList, ISearchMoviesReqOption } from "@/types";
 
 /**
  * Get the list of specified movies according to the `filter` field.
