@@ -14,8 +14,15 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import { MovieFilter } from "@/types/payload";
 
-const menuList = [
+interface IMenuItem {
+	id: number;
+	label: String;
+	value: MovieFilter;
+}
+
+const menuList: IMenuItem[] = [
 	{ id: 1, label: "Now playing", value: "now_playing" },
 	{ id: 2, label: "Popular", value: "popular" },
 	{ id: 3, label: "Top rated", value: "top_rated" },
@@ -25,10 +32,10 @@ const menuList = [
 let activeId = ref<Number>(1);
 
 const emits = defineEmits<{
-	(event: "switchType", filter: string): void;
+	(event: "switchType", filter: MovieFilter): void;
 }>();
 
-const onClick = (id: Number, e: string) => {
+const onClick = (id: Number, e: MovieFilter) => {
 	activeId.value = id;
 	emits("switchType", e);
 };

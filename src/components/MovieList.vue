@@ -1,8 +1,5 @@
 <template>
-	<MovieMenu
-		v-show="isShowMovieMenu"
-		@switch-type="fetchMovieList({ type: $event })"
-	/>
+	<MovieMenu v-show="isShowMovieMenu" @switch-type="fetchMovieList($event)" />
 
 	<div class="movie-container">
 		<router-link
@@ -32,47 +29,19 @@
 <script lang="ts" setup>
 import MovieMenu from "@/components/MovieMenu.vue";
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
+import { MovieFilter } from "@/types/payload";
+import { IMovieList } from "@/types/response";
 
-import nowPlaying from "@/mocks/movie_now-playing.json";
-import popular from "@/mocks/movie_popular.json";
-import topRated from "@/mocks/movie_top-rated.json";
-import upcoming from "@/mocks/movie_upcoming.json";
-import searchResult from "@/mocks/movie_search-result.json";
-
+import { getMovies } from "@/apis/mock";
 import { onMounted, ref } from "vue";
 import { useScroll, useEventListener } from "@vueuse/core";
 
 const isShowMovieMenu = ref<Boolean>(true);
 
-let MovieList = ref<{
-	page: Number;
-	results: any[];
-	total_pages: Number;
-	total_results: Number;
-}>({
-	page: 0,
-	results: [],
-	total_pages: 0,
-	total_results: 0,
-});
+let MovieList = ref<IMovieList>({ results: [] });
 
-const fetchMovieList = ({ type, query }: { type?: string; query?: string }) => {
-	const movieListMap = new Map([
-		["now_playing", nowPlaying],
-		["popular", popular],
-		["top_rated", topRated],
-		["upcoming", upcoming],
-	]);
-
-	if (query) {
-		isShowMovieMenu.value = false;
-		console.log(query);
-
-		MovieList.value = searchResult;
-		return;
-	}
-
-	MovieList.value = movieListMap.get(type!)!;
+const fetchMovieList = (filter: MovieFilter = "now_playing") => {
+	MovieList.value = getMovies({ filter, page: 1 });
 };
 
 useEventListener(window, "scroll", () => {
@@ -81,16 +50,17 @@ useEventListener(window, "scroll", () => {
 	});
 
 	if (arrivedState.bottom) {
-		console.log("Arrived bottom");
-		MovieList.value.results.push(...popular.results);
+		MovieList.value.results.push(
+			...getMovies({ filter: "popular", page: 1 }).results,
+		);
 	}
 });
 
 onMounted(() => {
-	fetchMovieList({ type: "now_playing" });
+	fetchMovieList();
 });
 
-defineExpose({ fetchMovieList });
+// defineExpose({ fetchMovieList });
 </script>
 
 <style lang="less" scoped>
