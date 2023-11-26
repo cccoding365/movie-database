@@ -1,6 +1,6 @@
 <template>
 	<div class="movie-detail">
-		<div class="movie-detail-backdrop">
+		<div class="movie-detail-backdrop" v-if="MovieDetail.backdrop_path">
 			<img :src="MOVIE_DB_IMAGE_URL.large + MovieDetail.backdrop_path" />
 		</div>
 
@@ -14,7 +14,7 @@
 				<span> {{ MovieDetail.runtime }} minutes </span>
 				<i class="icon fas fa-star" />
 				<span>
-					{{ MovieDetail.vote_average.toFixed(1) }} ( TMDB )
+					{{ MovieDetail.vote_average?.toFixed(1) }} ( TMDB )
 				</span>
 			</div>
 
@@ -66,8 +66,24 @@
 
 <script lang="ts" setup>
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
-import MovieDetail from "@/apis/movie-detail.json";
-import MovieCredits from "@/apis/movie-credits.json";
+// import MovieDetail from "@/apis/movie-detail.json";
+// import MovieCredits from "@/apis/movie-credits.json";
+import { ref, onBeforeMount } from "vue";
+import { getMovie, getMovieCredits } from "@/apis";
+
+const props = defineProps(["movieId"]);
+
+const MovieDetail = ref<any>({});
+const MovieCredits = ref<any>({});
+
+onBeforeMount(async () => {
+	const [detail, credits] = await Promise.all([
+		getMovie(props.movieId),
+		getMovieCredits(props.movieId),
+	]);
+	MovieDetail.value = detail;
+	MovieCredits.value = credits;
+});
 </script>
 
 <style lang="less" scoped>
