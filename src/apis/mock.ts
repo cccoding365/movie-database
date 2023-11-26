@@ -19,7 +19,7 @@ export const getMovies = ({
 		["upcoming", upcoming],
 	]);
 	return new Promise((resolve, reject) => {
-		if (movieListMap.get(filter)) {
+		if (movieListMap.has(filter)) {
 			resolve(movieListMap.get(filter)!);
 		} else {
 			reject({ results: [] });
@@ -31,12 +31,16 @@ export const getGenres = () => {
 	return axios.get("/genre/movie/list");
 };
 
-export const searchMovies = ({ query, page }: ISearchMoviesReqOption) => {
-	return axios.get(`/search/movie`, {
-		params: {
-			query,
-			page,
-		},
+export const searchMovies = ({
+	query,
+	page,
+}: ISearchMoviesReqOption): Promise<IMovieList> => {
+	return new Promise((resolve, reject) => {
+		if (query) {
+			resolve(searchResult);
+		} else {
+			reject({ results: [] });
+		}
 	});
 };
 

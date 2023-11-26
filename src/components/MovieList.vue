@@ -32,7 +32,7 @@ import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
 import { MovieFilter } from "@/types/payload";
 import { IMovieList } from "@/types/response";
 
-import { getMovies } from "@/apis/mock";
+import { getMovies, searchMovies } from "@/apis/mock";
 import { onMounted, ref } from "vue";
 import { useScroll, useEventListener } from "@vueuse/core";
 
@@ -42,6 +42,10 @@ let MovieList = ref<IMovieList>({ results: [] });
 
 const fetchMovieList = async (filter: MovieFilter = "now_playing") => {
 	MovieList.value = await getMovies({ filter, page: 1 });
+};
+
+const onSearchMovie = async (query: String) => {
+	MovieList.value = await searchMovies({ query, page: 1 });
 };
 
 useEventListener(window, "scroll", async () => {
@@ -60,7 +64,7 @@ onMounted(() => {
 	fetchMovieList();
 });
 
-// defineExpose({ fetchMovieList });
+defineExpose({ fetchMovieList, onSearchMovie });
 </script>
 
 <style lang="less" scoped>

@@ -1,10 +1,14 @@
 import axios from "@/utils/axios";
 import { IMovieReqOption, ISearchMoviesReqOption } from "@/types/payload";
+import { IMovieList } from "@/types/response";
 
 /**
  * Get the list of specified movies according to the `filter` field.
  */
-export const getMovies = ({ filter, page }: IMovieReqOption) => {
+export const getMovies = ({
+	filter,
+	page,
+}: IMovieReqOption): Promise<IMovieList> => {
 	return axios.get(`/movie/${filter}`, {
 		params: { page },
 	});
@@ -20,7 +24,10 @@ export const getGenres = () => {
 /**
  * Search for movies by their original, translated and alternative titles.
  */
-export const searchMovies = ({ query, page }: ISearchMoviesReqOption) => {
+export const searchMovies = ({
+	query,
+	page,
+}: ISearchMoviesReqOption): Promise<IMovieList> => {
 	return axios.get(`/search/movie`, {
 		params: {
 			query,

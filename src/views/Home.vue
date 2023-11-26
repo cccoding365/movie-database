@@ -19,11 +19,11 @@
 import MovieList from "@/components/MovieList.vue";
 import { ref } from "vue";
 
-const onEnterKeyup = (e: KeyboardEvent) => {
+const onEnterKeyup = async (e: KeyboardEvent) => {
 	const query = (e.target as HTMLInputElement).value;
 	if (!query) return;
 
-	(MovieListRef.value as any).fetchMovieList({ query });
+	await (MovieListRef.value as any).onSearchMovie(query);
 };
 
 const MovieListRef = ref<HTMLElement | null>(null);
