@@ -8,14 +8,23 @@ import topRated from "@/mocks/movie_top-rated.json";
 import upcoming from "@/mocks/movie_upcoming.json";
 import searchResult from "@/mocks/movie_search-result.json";
 
-export const getMovies = ({ filter, page }: IMovieReqOption): IMovieList => {
+export const getMovies = ({
+	filter,
+	page,
+}: IMovieReqOption): Promise<IMovieList> => {
 	const movieListMap = new Map([
 		["now_playing", nowPlaying],
 		["popular", popular],
 		["top_rated", topRated],
 		["upcoming", upcoming],
 	]);
-	return movieListMap.get(filter) as IMovieList;
+	return new Promise((resolve, reject) => {
+		if (movieListMap.get(filter)) {
+			resolve(movieListMap.get(filter)!);
+		} else {
+			reject({ results: [] });
+		}
+	});
 };
 
 export const getGenres = () => {

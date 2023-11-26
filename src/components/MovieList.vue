@@ -40,18 +40,18 @@ const isShowMovieMenu = ref<Boolean>(true);
 
 let MovieList = ref<IMovieList>({ results: [] });
 
-const fetchMovieList = (filter: MovieFilter = "now_playing") => {
-	MovieList.value = getMovies({ filter, page: 1 });
+const fetchMovieList = async (filter: MovieFilter = "now_playing") => {
+	MovieList.value = await getMovies({ filter, page: 1 });
 };
 
-useEventListener(window, "scroll", () => {
+useEventListener(window, "scroll", async () => {
 	const { arrivedState } = useScroll(window, {
 		behavior: "smooth",
 	});
 
 	if (arrivedState.bottom) {
 		MovieList.value.results.push(
-			...getMovies({ filter: "popular", page: 1 }).results,
+			...(await getMovies({ filter: "popular", page: 1 })).results,
 		);
 	}
 });
