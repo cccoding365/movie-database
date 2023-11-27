@@ -57,7 +57,7 @@ import { onMounted, ref } from "vue";
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
 import { homeTitle, menuList } from "@/constants";
 import { MovieFilter, IMovieList, IMenuItem } from "@/types";
-import { getMovies, searchMovies } from "@/apis/mock";
+import { getMovies, searchMovies } from "@/apis";
 import { useScroll, useEventListener } from "@vueuse/core";
 
 onMounted(() => fetchMovieList());
