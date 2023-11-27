@@ -99,57 +99,6 @@ onBeforeMount(async () => {
 	color: #ccc;
 }
 
-.movie-redits {
-	&-title {
-		color: #fff;
-		font-size: 1.125rem;
-		margin-bottom: 0.5rem;
-	}
-	&-cast {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		gap: 1rem;
-		&-item {
-			display: flex;
-			flex-direction: column;
-			width: 6.25rem;
-		}
-		&-profile {
-			border-radius: 0.5rem;
-			display: flex;
-			img {
-				width: 100%;
-			}
-			&::after {
-				content: "no photo";
-				font-size: 1.5rem;
-				font-style: oblique;
-				text-transform: capitalize;
-				padding-top: 100%;
-				color: #999;
-				font-weight: bold;
-				z-index: -1;
-			}
-		}
-		.name {
-			font-size: 1rem;
-			margin: 0.5rem 0;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-		.character {
-			color: #999;
-			font-size: 0.75rem;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-	}
-	padding: 0 1rem;
-}
-
 .movie-detail {
 	&-backdrop {
 		width: 100%;
@@ -228,6 +177,57 @@ onBeforeMount(async () => {
 		}
 		&-content {
 			line-height: 1.125rem;
+		}
+	}
+
+	.movie-redits {
+		padding: 0.75rem 1rem;
+		&-title {
+			color: #fff;
+			font-size: 1.125rem;
+			margin-bottom: 0.5rem;
+		}
+		&-cast {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: 1rem;
+			&-item {
+				display: flex;
+				flex-direction: column;
+				width: 6.25rem;
+			}
+			&-profile {
+				border-radius: 0.5rem;
+				display: flex;
+				img {
+					width: 100%;
+				}
+				&::after {
+					content: "no photo";
+					font-size: 1.5rem;
+					font-style: oblique;
+					text-transform: capitalize;
+					padding-top: 100%;
+					color: #999;
+					font-weight: bold;
+					z-index: -1;
+				}
+			}
+			.name {
+				font-size: 1rem;
+				margin: 0.5rem 0;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			.character {
+				color: #999;
+				font-size: 0.75rem;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
 		}
 	}
 }
