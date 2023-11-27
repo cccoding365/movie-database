@@ -87,14 +87,18 @@ const onMenuClick = (menuItem: IMenuItem) => {
 	fetchMovieList(value);
 };
 
+const page = ref<number>(1);
 useEventListener(window, "scroll", async () => {
 	const { arrivedState } = useScroll(window, {
 		behavior: "smooth",
 	});
 
 	if (arrivedState.bottom) {
+		const { value } = menuList.find(i => i.id === activeId.value)!;
+		page.value += 1;
+
 		MovieList.value.results.push(
-			...(await getMovies({ filter: "popular", page: 1 })).results,
+			...(await getMovies({ filter: value, page: page.value })).results,
 		);
 	}
 });
