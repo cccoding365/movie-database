@@ -39,7 +39,15 @@ export const searchMovies = ({
  * Get the top level details of a movie by ID.
  */
 export const getMovie = (id: Number) => {
-	return axios.get(`/movie/${id}`);
+	const storage = localStorage.getItem(`movie#${id}`);
+	if (storage) {
+		return Promise.resolve(JSON.parse(storage));
+	} else {
+		axios.get(`/movie/${id}`).then(res => {
+			localStorage.setItem(`movie#${id}`, JSON.stringify(res));
+		});
+		return axios.get(`/movie/${id}`);
+	}
 };
 
 /**
@@ -53,7 +61,15 @@ export const getMovieAlternativeTitles = (id: Number) => {
  * Get the all credits of a movie by ID.
  */
 export const getMovieCredits = (id: Number) => {
-	return axios.get(`/movie/${id}/credits`);
+	const storage = localStorage.getItem(`movie#${id}#credits`);
+	if (storage) {
+		return Promise.resolve(JSON.parse(storage));
+	} else {
+		axios.get(`/movie/${id}/credits`).then(res => {
+			localStorage.setItem(`movie#${id}#credits`, JSON.stringify(res));
+		});
+		return axios.get(`/movie/${id}/credits`);
+	}
 };
 
 /**
