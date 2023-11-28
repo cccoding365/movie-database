@@ -97,9 +97,19 @@ useEventListener(window, "scroll", async () => {
 		const { value } = menuList.find(i => i.id === activeId.value)!;
 		page.value += 1;
 
-		MovieList.value.results.push(
-			...(await getMovies({ filter: value, page: page.value })).results,
-		);
+		if (isShowMenu.value) {
+			const { results } = await getMovies({
+				filter: value,
+				page: page.value,
+			});
+			MovieList.value.results.push(...results);
+		} else {
+			const { results } = await searchMovies({
+				query: searchQuery.value,
+				page: page.value,
+			});
+			MovieList.value.results.push(...results);
+		}
 	}
 });
 </script>
@@ -121,7 +131,7 @@ useEventListener(window, "scroll", async () => {
 		animation: fadeIn 0.5s forwards;
 
 		.icon {
-			color: #f44c35;
+			color: #fff;
 			position: absolute;
 			left: 1rem;
 		}
