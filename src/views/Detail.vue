@@ -78,6 +78,7 @@ const MovieDetail = ref<any>({});
 const MovieCredits = ref<any>({});
 
 onBeforeMount(async () => {
+	window.scrollTo(0, 0);
 	isLoading.value = true;
 	const [detail, credits] = await Promise.all([
 		getMovie(props.movieId),
