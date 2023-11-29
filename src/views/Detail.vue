@@ -68,8 +68,8 @@
 
 <script lang="ts" setup>
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
-import { ref, onBeforeMount } from "vue";
 import { getMovie, getMovieCredits } from "@/apis";
+import { ref, onBeforeMount } from "vue";
 
 const props = defineProps(["movieId"]);
 const isLoading = ref<Boolean>(false);
