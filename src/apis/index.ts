@@ -8,9 +8,24 @@ export const getMovies = ({
 	filter,
 	page,
 }: IMovieReqOption): Promise<IMovieList> => {
-	return axios.get(`/movie/${filter}`, {
-		params: { page },
-	});
+	const storage = localStorage.getItem(`movie#${filter}#${page}`);
+	if (storage) {
+		return Promise.resolve(JSON.parse(storage));
+	} else {
+		axios
+			.get(`/movie/${filter}`, {
+				params: { page },
+			})
+			.then(res => {
+				localStorage.setItem(
+					`movie#${filter}#${page}`,
+					JSON.stringify(res),
+				);
+			});
+		return axios.get(`/movie/${filter}`, {
+			params: { page },
+		});
+	}
 };
 
 /**
