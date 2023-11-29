@@ -64,7 +64,8 @@ onMounted(() => fetchMovieList());
 
 let MovieList = ref<IMovieList>({ results: [] });
 const fetchMovieList = async (filter: MovieFilter = "now_playing") => {
-	MovieList.value = await getMovies({ filter, page: 1 });
+	page.value = 1;
+	MovieList.value = await getMovies({ filter, page: page.value });
 };
 
 const searchQuery = ref<String>("");
@@ -84,6 +85,7 @@ const activeId = ref<Number>(1);
 const onMenuClick = (menuItem: IMenuItem) => {
 	const { id, value } = menuItem;
 	activeId.value = id;
+
 	fetchMovieList(value);
 };
 
