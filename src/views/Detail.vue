@@ -41,6 +41,15 @@
 			</div>
 		</div>
 
+		<div class="movie-reviews">
+			<div class="movie-reviews-title">Reviews</div>
+			<div class="movie-review-item" v-for="item in MovieReviews.results">
+				<div class="author">{{ item.author }}</div>
+				<div class="create-at">{{ new Date(item.created_at) }}</div>
+				<div class="content">{{ item.content }}</div>
+			</div>
+		</div>
+
 		<div class="movie-redits">
 			<div class="movie-redits-title">Cast & Crew</div>
 			<div class="movie-redits-cast">
@@ -68,7 +77,7 @@
 
 <script lang="ts" setup>
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
-import { getMovie, getMovieCredits } from "@/apis";
+import { getMovie, getMovieCredits, getMovieReviews } from "@/apis";
 import { ref, onBeforeMount } from "vue";
 
 const props = defineProps(["movieId"]);
@@ -76,16 +85,20 @@ const isLoading = ref<Boolean>(false);
 
 const MovieDetail = ref<any>({});
 const MovieCredits = ref<any>({});
+const MovieReviews = ref<any>({});
 
 onBeforeMount(async () => {
 	window.scrollTo(0, 0);
 	isLoading.value = true;
-	const [detail, credits] = await Promise.all([
+	const [detail, credits, reviews] = await Promise.all([
 		getMovie(props.movieId),
 		getMovieCredits(props.movieId),
+		getMovieReviews(props.movieId),
 	]);
+	console.log(reviews);
 	MovieDetail.value = detail;
 	MovieCredits.value = credits;
+	MovieReviews.value = reviews;
 	isLoading.value = false;
 });
 </script>
@@ -178,6 +191,15 @@ onBeforeMount(async () => {
 		}
 		&-content {
 			line-height: 1.125rem;
+		}
+	}
+
+	.movie-reviews {
+		padding: 0.75rem 1rem;
+		&-title {
+			color: #fff;
+			font-size: 1.125rem;
+			margin-bottom: 0.5rem;
 		}
 	}
 
