@@ -45,7 +45,9 @@
 			<div class="movie-reviews-title">Reviews</div>
 			<div class="movie-review-item" v-for="item in MovieReviews.results">
 				<div class="author">{{ item.author }}</div>
-				<div class="create-at">{{ new Date(item.created_at) }}</div>
+				<div class="created-at">
+					{{ dayjs(item.created_at).format("YYYY-MM-DD HH:mm:ss") }}
+				</div>
 				<div class="content">{{ item.content }}</div>
 			</div>
 		</div>
@@ -79,6 +81,7 @@
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
 import { getMovie, getMovieCredits, getMovieReviews } from "@/apis";
 import { ref, onBeforeMount } from "vue";
+import dayjs from "dayjs";
 
 const props = defineProps(["movieId"]);
 const isLoading = ref<Boolean>(false);
@@ -200,6 +203,19 @@ onBeforeMount(async () => {
 			color: #fff;
 			font-size: 1.125rem;
 			margin-bottom: 0.5rem;
+		}
+		.movie-review-item {
+			margin-bottom: 1rem;
+			.created-at {
+				color: #999;
+			}
+			.content {
+				display: -webkit-box;
+				overflow: hidden;
+				-webkit-line-clamp: 3;
+				text-overflow: ellipsis;
+				-webkit-box-orient: vertical;
+			}
 		}
 	}
 
