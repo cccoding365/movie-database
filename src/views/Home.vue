@@ -44,13 +44,13 @@ import { MovieFilter, IMovieList, IMenuItem } from "@/types";
 import { getMovies, searchMovies } from "@/apis";
 import MovieCard from "@/components/MovieCard.vue";
 
-onMounted(() => fetchMovieList());
-
 let MovieList = ref<IMovieList>({ results: [] });
 const fetchMovieList = async (filter: MovieFilter = "now_playing") => {
 	page.value = 1;
 	MovieList.value = await getMovies({ filter, page: page.value });
 };
+
+onMounted(fetchMovieList);
 
 const searchQuery = ref<String>("");
 const isShowMenu = ref<Boolean>(true);
@@ -65,7 +65,7 @@ const onSearchClose = () => {
 	fetchMovieList();
 };
 
-const activeId = ref<Number>(1);
+const activeId = ref<number>(1);
 const onMenuClick = (menuItem: IMenuItem) => {
 	const { id, value } = menuItem;
 	activeId.value = id;
