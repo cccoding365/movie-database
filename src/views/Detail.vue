@@ -80,7 +80,6 @@
 <script lang="ts" setup>
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
 import { getMovie, getMovieCredits, getMovieReviews } from "@/apis";
-import { ref, onBeforeMount } from "vue";
 import dayjs from "dayjs";
 
 const props = defineProps(["movieId"]);
@@ -98,7 +97,6 @@ onBeforeMount(async () => {
 		getMovieCredits(props.movieId),
 		getMovieReviews(props.movieId),
 	]);
-	console.log(reviews);
 	MovieDetail.value = detail;
 	MovieCredits.value = credits;
 	MovieReviews.value = reviews;

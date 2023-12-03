@@ -25,6 +25,8 @@ export default defineConfig({
 				{
 					"@vueuse/core": [
 						// named imports
+						"useScroll",
+						"useEventListener",
 						"useMouse", // import { useMouse } from '@vueuse/core',
 						// alias
 						["useFetch", "useMyFetch"], // import { useFetch as useMyFetch } from '@vueuse/core',
