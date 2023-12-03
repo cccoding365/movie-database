@@ -32,6 +32,7 @@ defineProps<{
 	display: flex;
 	align-items: center;
 	border-radius: 0.5rem;
+	overflow: hidden;
 	position: relative;
 	img {
 		width: 100%;
