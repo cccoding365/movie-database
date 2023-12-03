@@ -32,31 +32,17 @@
 				class="movie-card"
 				v-for="item in MovieList.results"
 			>
-				<div class="poster">
-					<img
-						v-if="item.poster_path"
-						class="poster"
-						:src="MOVIE_DB_IMAGE_URL.medium + item.poster_path"
-						alt="movie-poster"
-						@error="e => ((<HTMLImageElement>e.target).style.display = 'none')"
-					/>
-				</div>
-				<div class="original_title" :title="item.title">
-					{{ item.title }}
-				</div>
-				<div class="release_year">
-					( {{ item.release_date.split("-")[0] }} )
-				</div>
+				<MovieCard :data="item" />
 			</router-link>
 		</div>
 	</div>
 </template>
 
 <script lang="ts" setup>
-import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
 import { homeTitle, menuList } from "@/constants";
 import { MovieFilter, IMovieList, IMenuItem } from "@/types";
 import { getMovies, searchMovies } from "@/apis";
+import MovieCard from "@/components/MovieCard.vue";
 
 onMounted(() => fetchMovieList());
 
@@ -208,36 +194,6 @@ useEventListener(window, "scroll", async () => {
 			&:hover {
 				box-shadow: 0px 12px 19px -7px rgba(0, 0, 0, 0.3);
 				transform: translateY(-10px);
-			}
-
-			.poster {
-				display: flex;
-				border-radius: 0.5rem;
-				img {
-					width: 100%;
-				}
-				&::after {
-					content: "no poster";
-					flex: 1;
-					font-size: 1.375rem;
-					font-style: oblique;
-					text-transform: capitalize;
-					padding-top: 100%;
-					color: #999;
-					font-weight: bold;
-					z-index: -1;
-				}
-			}
-			.original_title {
-				text-align: left;
-				line-height: 1rem;
-				margin: 0.25rem 0;
-				overflow: hidden;
-				white-space: nowrap;
-				text-overflow: ellipsis;
-			}
-			.release_year {
-				color: #bcbcbc;
 			}
 		}
 	}
