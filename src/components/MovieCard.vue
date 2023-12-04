@@ -2,29 +2,34 @@
 	<div class="poster">
 		<img
 			v-if="data.poster_path"
-			:src="MOVIE_DB_IMAGE_URL.medium + data.poster_path"
-			alt="movie-poster"
-			@error="e => ((<HTMLImageElement>e.target).style.display = 'none')"
+			:src="getPosterImgSrc(data.poster_path)"
+			@error="onImagError"
 		/>
 	</div>
-	<div class="original_title" :title="data.title">
-		{{ data.title }}
-	</div>
-	<div class="release_year">( {{ data.release_date.split("-")[0] }} )</div>
+	<div class="title" :title="data.title">{{ data.title }}</div>
+	<div class="release-year">{{ renderReleaseYear(data.release_date) }}</div>
 </template>
 
 <script lang="ts" setup>
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
 
-interface IMovieItem {
+interface IMovieData {
 	poster_path: string;
 	title: string;
 	release_date: string;
 }
 
 defineProps<{
-	data: IMovieItem;
+	data: IMovieData;
 }>();
+
+const getPosterImgSrc = (path: string) => MOVIE_DB_IMAGE_URL.medium + path;
+
+const onImagError = (e: Event) => {
+	(<HTMLImageElement>e.target).style.display = "none";
+};
+
+const renderReleaseYear = (date: string) => `( ${date.split("-")[0]} )`;
 </script>
 
 <style lang="less" scoped>
@@ -51,15 +56,13 @@ defineProps<{
 		z-index: -1;
 	}
 }
-.original_title {
-	text-align: left;
-	line-height: 1rem;
+.title {
 	margin: 0.25rem 0;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-.release_year {
+.release-year {
 	color: #bcbcbc;
 }
 </style>
