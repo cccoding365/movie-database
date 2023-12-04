@@ -189,6 +189,7 @@ useEventListener(window, "scroll", async () => {
 			justify-content: flex-end;
 			width: 8.125rem;
 			font-size: 0.75rem;
+			position: relative;
 			transition: transform 0.2s cubic-bezier(0.34, 2, 0.6, 1),
 				box-shadow 0.1s ease;
 			&:hover {

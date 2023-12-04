@@ -5,7 +5,7 @@ const axios = Axios.create({
 	baseURL: config.baseURL,
 	params: {
 		api_key: config.MOVIE_DB_API_KEY,
-		language: "en-US",
+		language: "zh-CN",
 	},
 });
 

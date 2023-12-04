@@ -6,6 +6,9 @@
 			@error="onImagError"
 		/>
 	</div>
+	<div class="vote-average" v-if="data.vote_average > 1">
+		{{ data.vote_average.toFixed(1) }}
+	</div>
 	<div class="title" :title="data.title">{{ data.title }}</div>
 	<div class="release-year">{{ renderReleaseYear(data.release_date) }}</div>
 </template>
@@ -17,6 +20,7 @@ interface IMovieData {
 	poster_path: string;
 	title: string;
 	release_date: string;
+	vote_average: number;
 }
 
 defineProps<{
@@ -56,6 +60,18 @@ const renderReleaseYear = (date: string) => `( ${date.split("-")[0]} )`;
 		z-index: -1;
 	}
 }
+
+.vote-average {
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: #15141fcc;
+	border-radius: 0 0 0 0.5rem;
+	color: goldenrod;
+	font-weight: bold;
+	padding: 0.25rem 0.75rem;
+}
+
 .title {
 	margin: 0.25rem 0;
 	overflow: hidden;
