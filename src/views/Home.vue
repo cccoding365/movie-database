@@ -127,6 +127,7 @@ useEventListener(window, "scroll", async () => {
 			width: 100%;
 			font-size: 0.875rem;
 			padding: 0.5rem 1rem;
+			border: 2px solid #454354;
 			border-radius: 999px;
 			color: #6e6d76;
 			background-color: #211f30;

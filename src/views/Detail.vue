@@ -2,43 +2,13 @@
 	<div v-if="isLoading" class="loading">Movie detial is loading...</div>
 
 	<div v-else class="movie-detail">
-		<div class="movie-detail-backdrop" v-if="MovieDetail.backdrop_path">
-			<img :src="MOVIE_DB_IMAGE_URL.large + MovieDetail.backdrop_path" />
+		<div class="movie-detail-backdrop" v-if="MovieDetailData.backdrop_path">
+			<img
+				:src="MOVIE_DB_IMAGE_URL.large + MovieDetailData.backdrop_path"
+			/>
 		</div>
-
-		<div class="movie-detail-content">
-			<div class="movie-detail-title">{{ MovieDetail.title }}</div>
-
-			<div class="tagline">{{ MovieDetail.tagline }}</div>
-
-			<div class="section">
-				<i class="icon fas fa-clock" />
-				<span> {{ MovieDetail.runtime }} minutes </span>
-				<i class="icon fas fa-star" />
-				<span>
-					{{ MovieDetail.vote_average?.toFixed(1) }} ( TMDB )
-				</span>
-			</div>
-
-			<div class="section">
-				<div class="release-date">
-					<div class="label">Release date</div>
-					<div class="value">{{ MovieDetail.release_date }}</div>
-				</div>
-				<div class="genre">
-					<div class="label">Genre</div>
-					<div class="value">
-						<span v-for="item in MovieDetail.genres">
-							{{ item.name }}
-						</span>
-					</div>
-				</div>
-			</div>
-
-			<div class="overview">
-				<div class="overview-title">Overview</div>
-				<div class="overview-content">{{ MovieDetail.overview }}</div>
-			</div>
+		<div style="padding: 0.75rem 1rem">
+			<MovieDetail :data="MovieDetailData" />
 		</div>
 
 		<div class="movie-reviews">
@@ -81,11 +51,12 @@
 import { MOVIE_DB_IMAGE_URL } from "@/configs/image";
 import { getMovie, getMovieCredits, getMovieReviews } from "@/apis";
 import dayjs from "dayjs";
+import MovieDetail from "@/components/MovieDetail.vue";
 
 const props = defineProps(["movieId"]);
 const isLoading = ref<Boolean>(false);
 
-const MovieDetail = ref<any>({});
+const MovieDetailData = ref<any>({});
 const MovieCredits = ref<any>({});
 const MovieReviews = ref<any>({});
 
@@ -97,7 +68,7 @@ onBeforeMount(async () => {
 		getMovieCredits(props.movieId),
 		getMovieReviews(props.movieId),
 	]);
-	MovieDetail.value = detail;
+	MovieDetailData.value = detail;
 	MovieCredits.value = credits;
 	MovieReviews.value = reviews;
 	isLoading.value = false;
@@ -128,70 +99,6 @@ onBeforeMount(async () => {
 			width: 100%;
 			left: 0;
 			background: linear-gradient(0deg, #15141f, #15141f09);
-		}
-	}
-	&-title {
-		margin: 0.5rem 0;
-		font-size: 1.5rem;
-		color: #fff;
-	}
-
-	.tagline {
-		font-size: 0.75rem;
-		line-height: 1rem;
-	}
-
-	&-content {
-		padding: 0 1rem;
-		font-size: 0.875rem;
-		color: #bcbcbc;
-		position: relative;
-
-		.section {
-			display: flex;
-			padding: 0.75rem 0;
-			margin-bottom: 0.5rem;
-			border-bottom: 1px solid #201f28;
-			.icon {
-				&:not(:nth-child(1)) {
-					margin-left: 1rem;
-				}
-				margin-right: 0.25rem;
-			}
-			.release-date,
-			.genre {
-				flex: 1;
-				.label {
-					color: #fff;
-					font-size: 1.125rem;
-					margin-bottom: 0.5rem;
-				}
-				.value {
-					display: flex;
-					flex-wrap: wrap;
-					span {
-						border-radius: 999px;
-						padding: 0.2rem 0.5rem;
-						border: 1px solid #999;
-						font-size: 0.6rem;
-						margin: 0 0.5rem 0.5rem 0;
-					}
-				}
-			}
-		}
-	}
-
-	.overview {
-		padding: 0.75rem 0;
-		margin-bottom: 0.5rem;
-		border-bottom: 1px solid #201f28;
-		&-title {
-			color: #fff;
-			font-size: 1.125rem;
-			margin-bottom: 0.5rem;
-		}
-		&-content {
-			line-height: 1.125rem;
 		}
 	}
 

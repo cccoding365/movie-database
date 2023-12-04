@@ -33,7 +33,8 @@ const onImagError = (e: Event) => {
 	(<HTMLImageElement>e.target).style.display = "none";
 };
 
-const renderReleaseYear = (date: string) => `( ${date.split("-")[0]} )`;
+const renderReleaseYear = (date: string) =>
+	`( ${date.split("-")[0] || "unknown"} )`;
 </script>
 
 <style lang="less" scoped>
