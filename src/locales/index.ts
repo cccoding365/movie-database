@@ -4,7 +4,7 @@ import en from "@/locales/en.json";
 
 export default createI18n({
 	legacy: false,
-	locale: "zh",
+	locale: localStorage.getItem("lang") || "en",
 	messages: {
 		zh,
 		en,

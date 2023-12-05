@@ -1,11 +1,16 @@
 import Axios from "axios";
 import config from "@/configs/axios";
 
+const languageMap = new Map([
+	["zh", "zh-CN"],
+	["en", "en-US"],
+]);
+
 const axios = Axios.create({
 	baseURL: config.baseURL,
 	params: {
 		api_key: config.MOVIE_DB_API_KEY,
-		language: "zh-CN",
+		language: languageMap.get(localStorage.getItem("language")!),
 	},
 });
 
