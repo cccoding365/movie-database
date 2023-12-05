@@ -66,7 +66,7 @@ const renderReleaseYear = (date: string) =>
 	position: absolute;
 	right: 0;
 	top: 0;
-	background-color: #15141fcc;
+	background-color: rgba(30, 30, 30, 0.9);
 	border-radius: 0 0 0 0.5rem;
 	color: goldenrod;
 	font-weight: bold;

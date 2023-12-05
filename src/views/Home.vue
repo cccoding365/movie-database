@@ -1,6 +1,6 @@
 <template>
 	<div class="main">
-		<div class="title">{{ homeTitle }}</div>
+		<div class="title">{{ $t("AppConfig.slogan") }}</div>
 		<div class="search-bar">
 			<i class="icon fas fa-search" />
 			<input
@@ -39,7 +39,7 @@
 </template>
 
 <script lang="ts" setup>
-import { homeTitle, menuList } from "@/constants";
+import { menuList } from "@/constants";
 import { MovieFilter, IMovieList, IMenuItem } from "@/types";
 import { getMovies, searchMovies } from "@/apis";
 import MovieCard from "@/components/MovieCard.vue";
@@ -104,7 +104,6 @@ useEventListener(window, "scroll", async () => {
 .main {
 	padding: 1rem;
 	.title {
-		font-size: 1.25rem;
 		font-weight: bold;
 		animation: fadeIn 0.5s forwards;
 	}

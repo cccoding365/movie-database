@@ -3,17 +3,24 @@
 		<div class="container">
 			<router-link class="router-link" to="/" @click="onRouteToHome">
 				<img class="logo" src="/favicon.svg" alt="Movie Database" />
-				<span class="title">Movie·Database</span>
+				<span class="title">{{ $t("AppConfig.title") }}</span>
 			</router-link>
+			<i class="change-language fas fa-globe" @click="onChangeLang" />
+			<span>{{ locale }}</span>
 			<i class="more-icon fas fa-bars" />
 		</div>
 	</header>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
+import { useI18n } from "vue-i18n";
+const { locale } = useI18n();
 import { useScroll } from "@vueuse/core";
-
 const { y } = useScroll(window);
+
+const onChangeLang = () => {
+	locale.value = locale.value === "zh" ? "en" : "zh";
+};
 
 const onRouteToHome = () => {
 	window.scrollTo(0, 0);
@@ -56,6 +63,7 @@ header {
 			margin-right: 1rem;
 		}
 		.title {
+			font-size: 1.25rem;
 			font-weight: bold;
 			text-transform: uppercase;
 			color: transparent;
@@ -63,9 +71,14 @@ header {
 			background-clip: text;
 			background-image: linear-gradient(90deg, #f44c35, #ff8f71);
 		}
+
+		.change-language {
+			margin-left: auto;
+			margin-right: 0.5rem;
+		}
 		.more-icon {
 			color: #ff8f71;
-			margin-left: auto;
+			margin-left: 1rem;
 		}
 	}
 }
