@@ -1,23 +1,25 @@
 <template>
-	<div class="title">{{ data.title }}</div>
+	<div class="movie-title">{{ data.title }}</div>
 
 	<div class="tagline">{{ data.tagline }}</div>
 
-	<div class="section">
+	<div class="section runtime">
 		<i class="icon fas fa-clock" />
-		<span> {{ data.runtime }} minutes </span>
+		<span class="content"> {{ data.runtime }} minutes </span>
 		<i class="icon fas fa-star" />
-		<span> {{ data.vote_average?.toFixed(1) }} ( TMDB ) </span>
+		<span class="content">
+			{{ data.vote_average?.toFixed(1) }} ( TMDB )
+		</span>
 	</div>
 
 	<div class="section">
 		<div class="release-date">
-			<div class="label">Release date</div>
-			<div class="value">{{ data.release_date }}</div>
+			<div class="title">Release date</div>
+			<div class="content">{{ data.release_date }}</div>
 		</div>
 		<div class="genre">
-			<div class="label">Genre</div>
-			<div class="value">
+			<div class="title">Genre</div>
+			<div class="content">
 				<span v-for="item in data.genres">
 					{{ item.name }}
 				</span>
@@ -25,9 +27,9 @@
 		</div>
 	</div>
 
-	<div class="overview">
-		<div class="overview-title">Overview</div>
-		<div class="overview-content">{{ data.overview }}</div>
+	<div class="section overview">
+		<div class="title">Overview</div>
+		<div class="content">{{ data.overview }}</div>
 	</div>
 </template>
 <script lang="ts" setup>
@@ -50,17 +52,14 @@ defineProps<{
 }>();
 </script>
 <style lang="less" scoped>
-.title {
-	margin: 0.5rem 0;
+.movie-title {
 	font-size: 1.5rem;
-	color: #fff;
+	line-height: 3rem;
 }
-
 .tagline {
+	color: #ccc;
 	font-size: 0.75rem;
-	line-height: 1rem;
 }
-
 .section {
 	display: flex;
 	padding: 0.75rem 0;
@@ -72,39 +71,41 @@ defineProps<{
 		}
 		margin-right: 0.25rem;
 	}
+	.title {
+		font-size: 1.25rem;
+		margin-bottom: 0.5rem;
+	}
+	.content {
+		color: #ccc;
+		font-size: 0.75rem;
+	}
 	.release-date,
 	.genre {
 		flex: 1;
-		.label {
-			color: #fff;
-			font-size: 1.125rem;
-			margin-bottom: 0.5rem;
-		}
-		.value {
+		.content {
 			display: flex;
 			flex-wrap: wrap;
 			span {
 				border-radius: 999px;
-				padding: 0.2rem 0.5rem;
+				padding: 0.1rem 0.5rem;
 				border: 1px solid #999;
-				font-size: 0.6rem;
+				font-size: 0.5rem;
 				margin: 0 0.5rem 0.5rem 0;
 			}
 		}
 	}
-}
-
-.overview {
-	padding: 0.75rem 0;
-	margin-bottom: 0.5rem;
-	border-bottom: 1px solid #201f28;
-	&-title {
-		color: #fff;
-		font-size: 1.125rem;
-		margin-bottom: 0.5rem;
+	&.runtime {
+		align-items: center;
 	}
-	&-content {
-		line-height: 1.25rem;
+	&.overview {
+		flex-direction: column;
+		.content {
+			text-align: justify;
+			// display: -webkit-box;
+			// -webkit-line-clamp: 5;
+			// -webkit-box-orient: vertical;
+			// overflow: hidden;
+		}
 	}
 }
 </style>
