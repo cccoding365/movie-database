@@ -5,8 +5,10 @@
 				<img class="logo" src="/favicon.svg" alt="Movie Database" />
 				<span class="title">{{ $t("AppConfig.title") }}</span>
 			</router-link>
-			<i class="change-language fas fa-globe" @click="onChangeLang" />
-			<span>{{ locale }}</span>
+			<div class="language" @click="onChangeLang">
+				<i class="icon fas fa-globe" />
+				<span>{{ locale }}</span>
+			</div>
 			<i class="more-icon fas fa-bars" />
 		</div>
 	</header>
@@ -75,9 +77,15 @@ header {
 			background-image: linear-gradient(90deg, #f44c35, #ff8f71);
 		}
 
-		.change-language {
+		.language {
 			margin-left: auto;
-			margin-right: 0.5rem;
+			font-size: 0.75rem;
+			color: #ecc9c0;
+			cursor: pointer;
+
+			.icon {
+				margin-right: 0.25rem;
+			}
 		}
 		.more-icon {
 			color: #ff8f71;

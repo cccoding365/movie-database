@@ -27,8 +27,8 @@
 		</div>
 
 		<div class="movie-list">
-			<div class="mask" v-if="!isLoading">
-				<span class="loading">Loading...</span>
+			<div class="mask" v-if="isLoading">
+				<Loading class="loading" />
 			</div>
 			<router-link
 				:to="`movie/${item.id}`"
@@ -45,6 +45,9 @@
 import { MovieFilter, IMovieList, IMenuItem } from "@/types";
 import { getMovies, searchMovies } from "@/apis";
 import MovieCard from "@/components/MovieCard.vue";
+import Loading from "@/components/Loading.vue";
+import { useScrollLock } from "@vueuse/core";
+
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
@@ -59,12 +62,15 @@ const menuList: IMenuItem[] = [
 
 let MovieList = ref<IMovieList>({ results: [] });
 const isLoading = ref<boolean>(false);
+const isScrollLock = useScrollLock(window);
 const fetchMovieList = async (filter: MovieFilter = "now_playing") => {
 	page.value = 1;
 	isLoading.value = true;
+	isScrollLock.value = true;
 	MovieList.value = await getMovies({ filter, page: page.value });
 	placeholderText.value = MovieList.value.results[0]?.title;
 	isLoading.value = false;
+	isScrollLock.value = false;
 };
 
 onMounted(fetchMovieList);
@@ -202,6 +208,7 @@ useEventListener(window, "scroll", async () => {
 		gap: 1.75rem;
 		animation: fadeIn 0.5s forwards;
 		position: relative;
+		min-height: 70vh;
 
 		.mask {
 			position: absolute;
