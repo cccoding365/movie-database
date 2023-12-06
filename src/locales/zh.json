@@ -2,5 +2,11 @@
     "AppConfig": {
         "title": "电影数据库",
         "slogan": "海量影视资源尽在电影数据库……"
+    },
+    "MovieFilter": {
+        "nowPlaying": "正在热映",
+        "popular": "最受欢迎",
+        "topRated": "高分佳作",
+        "upcoming": "即将播出"
     }
 }

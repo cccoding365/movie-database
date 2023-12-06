@@ -2,5 +2,11 @@
     "AppConfig": {
         "title": "Movie·Database",
         "slogan": "Find Movies, TV series, and more..."
+    },
+    "MovieFilter": {
+        "nowPlaying": "Now playing",
+        "popular": "Popular",
+        "topRated": "Top rated",
+        "upcoming": "Upcoming"
     }
 }

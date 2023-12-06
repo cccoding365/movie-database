@@ -6,7 +6,7 @@
 			<input
 				type="text"
 				v-model="searchQuery"
-				placeholder="Sherlock Holmes"
+				:placeholder="placeholderText"
 				@keyup.enter="onMovieSearch"
 			/>
 		</div>
@@ -27,6 +27,9 @@
 		</div>
 
 		<div class="movie-list">
+			<div class="mask" v-if="!isLoading">
+				<span class="loading">Loading...</span>
+			</div>
 			<router-link
 				:to="`movie/${item.id}`"
 				class="movie-card"
@@ -39,15 +42,29 @@
 </template>
 
 <script lang="ts" setup>
-import { menuList } from "@/constants";
 import { MovieFilter, IMovieList, IMenuItem } from "@/types";
 import { getMovies, searchMovies } from "@/apis";
 import MovieCard from "@/components/MovieCard.vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
+
+const placeholderText = ref<string>("");
+
+const menuList: IMenuItem[] = [
+	{ id: 1, label: t("MovieFilter.nowPlaying"), value: "now_playing" },
+	{ id: 2, label: t("MovieFilter.popular"), value: "popular" },
+	{ id: 3, label: t("MovieFilter.topRated"), value: "top_rated" },
+	{ id: 4, label: t("MovieFilter.upcoming"), value: "upcoming" },
+];
 
 let MovieList = ref<IMovieList>({ results: [] });
+const isLoading = ref<boolean>(false);
 const fetchMovieList = async (filter: MovieFilter = "now_playing") => {
 	page.value = 1;
+	isLoading.value = true;
 	MovieList.value = await getMovies({ filter, page: page.value });
+	placeholderText.value = MovieList.value.results[0]?.title;
+	isLoading.value = false;
 };
 
 onMounted(fetchMovieList);
@@ -55,8 +72,10 @@ onMounted(fetchMovieList);
 const searchQuery = ref<String>("");
 const isShowMenu = ref<Boolean>(true);
 const onMovieSearch = async () => {
+	isLoading.value = true;
 	MovieList.value = await searchMovies({ query: searchQuery.value, page: 1 });
 	isShowMenu.value = false;
+	isLoading.value = false;
 };
 
 const onSearchClose = () => {
@@ -182,6 +201,21 @@ useEventListener(window, "scroll", async () => {
 		padding: 1.75rem 0;
 		gap: 1.75rem;
 		animation: fadeIn 0.5s forwards;
+		position: relative;
+
+		.mask {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: 999;
+			background-color: rgba(0, 0, 0, 0.8);
+			display: flex;
+			justify-content: center;
+			.loading {
+				margin-top: 20vh;
+				text-align: center;
+			}
+		}
 
 		.movie-card {
 			display: flex;

@@ -22,6 +22,7 @@ const onChangeLang = () => {
 	const lang = locale.value === "zh-CN" ? "en-US" : "zh-CN";
 	locale.value = lang;
 	localStorage.setItem("language", lang);
+	window.location.reload();
 };
 
 const onRouteToHome = () => {
