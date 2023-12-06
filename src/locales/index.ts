@@ -4,9 +4,9 @@ import en from "@/locales/en.json";
 
 export default createI18n({
 	legacy: false,
-	locale: localStorage.getItem("lang") || "en",
+	locale: localStorage.getItem("language") || "en-US",
 	messages: {
-		zh,
-		en,
+		"zh-CN": zh,
+		"en-US": en,
 	},
 });

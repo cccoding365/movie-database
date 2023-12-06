@@ -5,7 +5,7 @@
 				<img class="logo" src="/favicon.svg" alt="Movie Database" />
 				<span class="title">{{ $t("AppConfig.title") }}</span>
 			</router-link>
-			<i class="change-language fas fa-language" @click="onChangeLang" />
+			<i class="change-language fas fa-globe" @click="onChangeLang" />
 			<span>{{ locale }}</span>
 			<i class="more-icon fas fa-bars" />
 		</div>
@@ -19,8 +19,7 @@ import { useScroll } from "@vueuse/core";
 const { y } = useScroll(window);
 
 const onChangeLang = () => {
-	const lang = locale.value === "zh" ? "en" : "zh";
-	console.log(lang);
+	const lang = locale.value === "zh-CN" ? "en-US" : "zh-CN";
 	locale.value = lang;
 	localStorage.setItem("language", lang);
 };
