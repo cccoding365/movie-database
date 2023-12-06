@@ -29,6 +29,7 @@ export const searchMovies = ({
 }: ISearchMoviesReqOption): Promise<IMovieList> => {
 	return axios.get(`/search/movie`, {
 		params: {
+			language: localStorage.getItem("language"),
 			query,
 			page,
 		},
@@ -39,7 +40,11 @@ export const searchMovies = ({
  * Get the top level details of a movie by ID.
  */
 export const getMovie = (id: Number) => {
-	return axios.get(`/movie/${id}`);
+	return axios.get(`/movie/${id}`, {
+		params: {
+			language: localStorage.getItem("language"),
+		},
+	});
 };
 
 /**

@@ -1,5 +1,7 @@
 <template>
-	<div v-if="isLoading" class="loading">Movie detial is loading...</div>
+	<div v-if="isLoading" class="loading">
+		<Loading />
+	</div>
 
 	<div v-else class="movie-detail">
 		<div class="movie-detail-backdrop" v-if="MovieDetailData.backdrop_path">
@@ -10,17 +12,6 @@
 		<div style="padding: 0.75rem 1rem">
 			<MovieDetail :data="MovieDetailData" />
 		</div>
-
-		<!-- <div class="movie-reviews">
-			<div class="movie-reviews-title">Reviews</div>
-			<div class="movie-review-item" v-for="item in MovieReviews.results">
-				<div class="author">{{ item.author }}</div>
-				<div class="created-at">
-					{{ dayjs(item.created_at).format("YYYY-MM-DD HH:mm:ss") }}
-				</div>
-				<div class="content">{{ item.content }}</div>
-			</div>
-		</div> -->
 
 		<div style="padding: 0.75rem 1rem">
 			<MovieCredits :data="MovieCreditsData" />
@@ -34,6 +25,7 @@ import { getMovie, getMovieCredits, getMovieReviews } from "@/apis";
 // import dayjs from "dayjs";
 import MovieDetail from "@/components/MovieDetail.vue";
 import MovieCredits from "@/components/MovieCredits.vue";
+import Loading from "@/components/Loading.vue";
 
 const props = defineProps(["movieId"]);
 const isLoading = ref<Boolean>(false);
