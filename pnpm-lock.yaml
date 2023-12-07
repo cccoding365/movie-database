@@ -14,6 +14,9 @@ dependencies:
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
+  swiper:
+    specifier: ^11.0.5
+    version: 11.0.5
   vue:
     specifier: ^3.3.8
     version: 3.3.8(typescript@5.2.2)
@@ -1147,6 +1150,11 @@ packages:
     dependencies:
       acorn: 8.11.2
     dev: true
+
+  /swiper@11.0.5:
+    resolution: {integrity: sha512-rhCwupqSyRnWrtNzWzemnBLMoyYuoDgGgspAm/8iBD3jCvAWycPLH4Z3TB0O5520DHLzMx94yUMH/B9Efpa48w==}
+    engines: {node: '>= 4.7.0'}
+    dev: false
 
   /to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}

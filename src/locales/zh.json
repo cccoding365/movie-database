@@ -1,4 +1,5 @@
 {
+    "minutes": "分钟",
     "AppConfig": {
         "title": "电影数据库",
         "slogan": "海量影视资源尽在电影数据库……"
@@ -8,5 +9,11 @@
         "popular": "最受欢迎",
         "topRated": "高分佳作",
         "upcoming": "即将播出"
+    },
+    "InfoLabel": {
+        "releaseDate": "上映日期",
+        "genre": "类型",
+        "overview": "概述",
+        "cast&crew": "演职人员"
     }
 }

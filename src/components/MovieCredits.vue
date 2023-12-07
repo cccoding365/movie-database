@@ -1,5 +1,5 @@
 <template>
-	<div class="title">Cast & Crew</div>
+	<div class="title">{{ $t("InfoLabel.cast&crew") }}</div>
 	<div class="casts">
 		<div class="cast-item" v-for="item in data.cast">
 			<div class="profile">
@@ -9,8 +9,10 @@
 					@error="onImagError"
 				/>
 			</div>
-			<div class="name">{{ item.name }}</div>
-			<div class="character">{{ item.character }}</div>
+			<div class="info">
+				<div class="name">{{ item.name }}</div>
+				<div class="character">{{ item.character }}</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -39,23 +41,25 @@ const onImagError = (e: Event) => {
 <style lang="less" scoped>
 .title {
 	color: #fff;
-	font-size: 1.125rem;
+	font-size: 1.25rem;
 	margin-bottom: 0.5rem;
 }
 .casts {
 	display: flex;
+	flex-direction: column;
 	flex-wrap: wrap;
-	justify-content: space-between;
 	gap: 1rem;
 	.cast-item {
 		display: flex;
-		flex-direction: column;
-		width: 6.25rem;
+		background-color: #333;
+		border-radius: 0.5rem;
+		overflow: hidden;
 
 		.profile {
-			border-radius: 0.5rem;
-			display: flex;
+			width: 6.25rem;
 			overflow: hidden;
+			display: flex;
+			margin-right: 1rem;
 			img {
 				width: 100%;
 			}
@@ -70,14 +74,13 @@ const onImagError = (e: Event) => {
 			}
 		}
 		.name {
-			line-height: 1.5rem;
+			line-height: 2rem;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
 		.character {
 			color: #999;
-			line-height: 1rem;
 			font-size: 0.75rem;
 			white-space: nowrap;
 			overflow: hidden;

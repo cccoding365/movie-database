@@ -5,7 +5,7 @@
 
 	<div class="section runtime">
 		<i class="icon fas fa-clock" />
-		<span class="content"> {{ data.runtime }} minutes </span>
+		<span class="content"> {{ data.runtime }} {{ $t("minutes") }} </span>
 		<i class="icon fas fa-star" />
 		<span class="content">
 			{{ data.vote_average?.toFixed(1) }} ( TMDB )
@@ -14,11 +14,11 @@
 
 	<div class="section">
 		<div class="release-date">
-			<div class="title">Release date</div>
+			<div class="title">{{ $t("InfoLabel.releaseDate") }}</div>
 			<div class="content">{{ data.release_date }}</div>
 		</div>
 		<div class="genre">
-			<div class="title">Genre</div>
+			<div class="title">{{ $t("InfoLabel.genre") }}</div>
 			<div class="content">
 				<span v-for="item in data.genres">
 					{{ item.name }}
@@ -28,7 +28,7 @@
 	</div>
 
 	<div class="section overview">
-		<div class="title">Overview</div>
+		<div class="title">{{ $t("InfoLabel.overview") }}</div>
 		<div class="content">{{ data.overview }}</div>
 	</div>
 </template>
@@ -75,7 +75,8 @@ defineProps<{
 		font-size: 1.25rem;
 		margin-bottom: 0.5rem;
 	}
-	.content {
+	.content,
+	.icon {
 		color: #ccc;
 		font-size: 0.75rem;
 	}

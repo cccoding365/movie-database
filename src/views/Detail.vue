@@ -5,9 +5,7 @@
 
 	<div v-else class="movie-detail">
 		<div class="movie-detail-backdrop" v-if="MovieDetailData.backdrop_path">
-			<img
-				:src="MOVIE_DB_IMAGE_URL.large + MovieDetailData.backdrop_path"
-			/>
+			<img :src="getBackdropSrc(MovieDetailData.backdrop_path)" />
 		</div>
 		<div style="padding: 0.75rem 1rem">
 			<MovieDetail :data="MovieDetailData" />
@@ -26,6 +24,10 @@ import { getMovie, getMovieCredits, getMovieReviews } from "@/apis";
 import MovieDetail from "@/components/MovieDetail.vue";
 import MovieCredits from "@/components/MovieCredits.vue";
 import Loading from "@/components/Loading.vue";
+
+// import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+const getBackdropSrc = (path: string) => MOVIE_DB_IMAGE_URL.large + path;
 
 const props = defineProps(["movieId"]);
 const isLoading = ref<Boolean>(false);
