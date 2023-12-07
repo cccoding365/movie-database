@@ -208,14 +208,13 @@ useEventListener(window, "scroll", async () => {
 		gap: 1.75rem;
 		animation: fadeIn 0.5s forwards;
 		position: relative;
-		min-height: 70vh;
 
 		.mask {
 			position: absolute;
 			width: 100%;
 			height: 100%;
 			z-index: 999;
-			background-color: rgba(0, 0, 0, 0.8);
+			background-color: #15141f;
 			display: flex;
 			justify-content: center;
 			.loading {

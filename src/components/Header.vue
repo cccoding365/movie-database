@@ -41,7 +41,6 @@ header {
 	display: flex;
 	justify-content: center;
 	transition: all 0.25s;
-	background-color: #00000033;
 	&.fixed {
 		position: fixed;
 		z-index: 9999;
